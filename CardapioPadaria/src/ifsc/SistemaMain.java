@@ -10,6 +10,9 @@ public class SistemaMain {
 		Scanner leitura = new Scanner(System.in);
 		ArrayList<Salgado> salgados = new ArrayList<>();
 		double total = 0.0;
+        String nomeItemSelecionado = "";
+        double valorItemSelecionado = 0.0;
+
 
 		while (opcaoSelecionada != 0) {
 
@@ -20,7 +23,6 @@ public class SistemaMain {
 			 * de incluir, alterar, listar e excluir de alguma forma.
 			 */
 			System.out.println("BEM-VINDO A NOSSA PADARIA!");
-			
 			System.out.println("Qual é o seu pedido: ");	
 			System.out.println("- MENU EXEMPLO -");
 			System.out.println("0 SAIR");
@@ -63,17 +65,31 @@ public class SistemaMain {
 					
 					if (op == 1) {
 						System.out.println("Você escolheu pastel de frango");
+						nomeItemSelecionado = "pastel de frango";
+                        valorItemSelecionado = 6.00;
+                        total += valorItemSelecionado;
+
 					}else {
 				        System.out.println("Você escolheu pastel de carne");
+				        nomeItemSelecionado = "pastel de carne";
+                        valorItemSelecionado = 6.00;
+                        total += valorItemSelecionado;
+
 					}
 		            break;
 		            
 	            case 2:
 		            System.out.print("Você escolheu bolinho de carne");
+		            nomeItemSelecionado = "bolinho de carne";
+                    valorItemSelecionado = 4.00;
+                    total += valorItemSelecionado;
 		            break;
 		            
 		        case 3:
 		            System.out.print("Você escolheu coxinha de frango");
+		            nomeItemSelecionado = "coxinha de frango";
+                    valorItemSelecionado = 5.00;
+                    total += valorItemSelecionado;
 		            break;
 
 
@@ -108,19 +124,28 @@ public class SistemaMain {
 				
 				switch (opção) {
 				case 0: {
-					// Fecha sistema
+					System.out.print("saindo do programa");
 					break;
 				}
 		        case 1:
 		            System.out.print("Você escolheu brigadeiro");
+		            nomeItemSelecionado = "brigadeiro";
+                    valorItemSelecionado = 3.00;
+                    total += valorItemSelecionado;
 					break;
 		            
 	            case 2:
 		            System.out.print("Você escolheu açaí");
+		            nomeItemSelecionado = "açaí";
+                    valorItemSelecionado = 5.00;
+                    total += valorItemSelecionado;
 		            break;
 		            
 		        case 3:
 		            System.out.print("Você escolheu bolo de chocolate");
+		            nomeItemSelecionado = "bolo de chocolate";
+                    valorItemSelecionado = 6.00;
+                    total += valorItemSelecionado;
 		            break;
 			    }
 			case 3: {
@@ -128,7 +153,7 @@ public class SistemaMain {
 				
 				System.out.println("- MENU EXEMPLO -");
 				System.out.println("0 SAIR");
-				System.out.println("1 REFRIGERANTE - R$4.00");
+				System.out.println("1 REFRIGERANTE - R$5.00");
 				System.out.println("2 CAFÉ - R$3.00");
 				System.out.println("3 ÁGUA - R$2.00");
 				
@@ -143,15 +168,21 @@ public class SistemaMain {
 		            System.out.print("Você escolheu refrigerante");
 		            
 		            System.out.println("- MENU EXEMPLO -");
-					System.out.println("1 COCA-COLA - R$3.00");
+					System.out.println("1 COCA-COLA - R$5.00");
 					System.out.println("2 GUARANA - R$5.00 ");
 					
                     int opc = Integer.valueOf(leitura.nextLine());
 					
 					if (opc == 1) {
 						System.out.println("Você escolheu coca-cola");
+						 nomeItemSelecionado = "coca-cola";
+		                    valorItemSelecionado = 5.00;
+		                    total += valorItemSelecionado;
 					}else {
 				        System.out.println("Você escolheu guarana");
+				        nomeItemSelecionado = "guarana";
+	                    valorItemSelecionado = 5.00;
+	                    total += valorItemSelecionado;
 					}
 		            break;
 					
@@ -160,15 +191,21 @@ public class SistemaMain {
 		            System.out.print("Você escolheu café");
 		            
 		            System.out.println("- MENU EXEMPLO -");
-					System.out.println("1 CAFÉ COM LEITE - R$3.00");
-					System.out.println("2 CAFÉ PURO - R$5.00 ");
+					System.out.println("1 CAFÉ COM LEITE - R$5.00");
+					System.out.println("2 CAFÉ PURO - R$4.00 ");
 					
                     int op = Integer.valueOf(leitura.nextLine());
 					
 					if (op == 1) {
 						System.out.println("Você escolheu café com leite");
+						 nomeItemSelecionado = "café com leite";
+		                    valorItemSelecionado = 5.00;
+		                    total += valorItemSelecionado;
 					}else {
 				        System.out.println("Você escolheu café puro");
+				        nomeItemSelecionado = "café puro";
+	                    valorItemSelecionado = 4.00;
+	                    total += valorItemSelecionado;
 					}
 		            break;
 		            
@@ -177,15 +214,21 @@ public class SistemaMain {
 		            System.out.print("Você escolheu água");
 		            
 		            System.out.println("- MENU EXEMPLO -");
-					System.out.println("1 ÁGUA COM GÁS - R$3.00");
-					System.out.println("2 ÁGUA SEM GÁS - R$5.00 ");
+					System.out.println("1 ÁGUA COM GÁS - R$5.00");
+					System.out.println("2 ÁGUA SEM GÁS - R$4.00 ");
 					
                     int o = Integer.valueOf(leitura.nextLine());
 					
 					if (o == 1) {
 						System.out.println("Você escolheu água com gás");
+						nomeItemSelecionado = "água com gás";
+	                    valorItemSelecionado = 5.00;
+	                    total += valorItemSelecionado;
 					}else {
 				        System.out.println("Você escolheu água sem gás");
+				        nomeItemSelecionado = "água sem gás";
+	                    valorItemSelecionado = 4.00;
+	                    total += valorItemSelecionado;
 					}
 		            break;
 			    }
@@ -204,8 +247,15 @@ public class SistemaMain {
 				break;
 			}
 	        case 1:
-	            // exibe a soma dos preços
-				break;
+	        	 System.out.println("Item selecionado: " + nomeItemSelecionado);
+                 System.out.println("Valor: R$" + valorItemSelecionado);
+                 System.out.println("Total a pagar: R$" + total);
+                 return;
+
+	        default:
+                System.out.println("Opção inválida! Escolha novamente.");
+                break;
+
 			
 
 			}
