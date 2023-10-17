@@ -1,8 +1,5 @@
 package ifsc;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-
 public class SistemaMain {
 	public static void main(String[] args) {
 
@@ -12,7 +9,8 @@ public class SistemaMain {
 		double total = 0.0;
         String nomeItemSelecionado = "";
         double valorItemSelecionado = 0.0;
-
+        
+        preencheEstoque();
 
 		while (opcaoSelecionada != 0) {
 
@@ -70,8 +68,8 @@ public class SistemaMain {
 					if (op == 1) {
 						System.out.println("Você escolheu pastel de frango");
 						nomeItemSelecionado = "pastel de frango";
-                        valorItemSelecionado = 6.00;
-                        total += valorItemSelecionado;
+//                        valorItemSelecionado = 6.00;
+//                        total += valorItemSelecionado;
 
 					}else {
 				        System.out.println("Você escolheu pastel de carne");
@@ -113,8 +111,8 @@ public class SistemaMain {
 				p.setPreco(preco);
 
 				salgados.add(p);
-
-			    }
+				}
+			 }
 			case 2: {
 				System.out.println("O tipo de produto foi doce");
 				
@@ -284,5 +282,12 @@ public class SistemaMain {
 
 		leitura.close();
 	}
+			
+			public void preencheEstoque() {
+				Salgado s = new Salgado();
+				s.setNome(null);
+				
+				listaSalgado.add(s);
+			}
+			}
 }
-		
