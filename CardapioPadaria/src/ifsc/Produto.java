@@ -4,7 +4,7 @@ public class Produto {
 	private String nome;
 	private String sabor;
 	private String descricao;
-	private Float preco;
+	private String preco;
 
 	public String getNome() {
 		return nome;
@@ -30,11 +30,11 @@ public class Produto {
 		this.descricao = descricao;
 	}
 
-	public Float getPreco() {
+	public String getPreco() {
 		return preco;
 	}
 
-	public void setPreco(Float preco) {
+	public void setPreco(String preco) {
 		this.preco = preco;
 	}
 
