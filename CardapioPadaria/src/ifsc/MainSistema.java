@@ -8,6 +8,10 @@ public class MainSistema {
 	public static void main(String[] args) {
 		
 		        Scanner scanner = new Scanner(System.in);
+		        ArrayList<Salgado> salgado = new ArrayList<>();
+		        ArrayList<Doce> doce = new ArrayList<>();
+		        ArrayList<Bebida> bebida = new ArrayList<>();
+		        double total = 0.0;
 		        int escolha;
 		        int opcao = 0;
 		        do {
