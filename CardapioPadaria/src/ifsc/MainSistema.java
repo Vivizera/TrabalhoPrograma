@@ -8,13 +8,13 @@ public class MainSistema {
 	private static ArrayList<Salgado> salgados = new ArrayList<>();
 	private static ArrayList<Doce> doces = new ArrayList<>();
 	private static ArrayList<Bebida> bebidas = new ArrayList<>();
-
-	private static ArrayList<Produto> produtosComprados = new ArrayList<>();
+	private static ArrayList<ItemCompra> produtosComprados = new ArrayList<>();
 
 	public static void main(String[] args) {
 
 		Scanner scanner = new Scanner(System.in);
-
+		String nomeDoProduto = null;
+		double precoDoProduto = 0;
 		double total = 0.0;
 		int escolha;
 		int opcao = 0;
@@ -33,7 +33,9 @@ public class MainSistema {
 			System.out.println("Digite 4 para sair");
 			System.out.print("Escolha uma opção: ");
 			escolha = Integer.valueOf(scanner.nextLine());
-
+			ItemCompra itemCompra = new ItemCompra(nomeDoProduto, precoDoProduto);
+	        produtosComprados.add(itemCompra);
+	        
 			switch (escolha) {
 			case 1:
 				System.out.println("Você escolheu salgados");
@@ -151,6 +153,14 @@ public class MainSistema {
 			System.out.println("Pagamento concluido!");
 		}
 
+		// Após o pagamento, imprimir a lista de compras e o total:
+		
+		System.out.println("Lista de Compras:");
+		for (ItemCompra item : produtosComprados) {
+		    System.out.println(item.getNome() + " - R$" + item.getPreco());
+		    total += item.getPreco();
+		}
+		System.out.println("Total: R$" + total);
 		System.out.println("Volte sempre!!");
 	}
 
@@ -413,10 +423,11 @@ public class MainSistema {
 						System.out.println(pastelCarne.getTipo());
 					}
 				}
+				
+
+			}
 			}
 		}
-
-	}
 
 	public static void criaEstoque() {
 		Salgado pastelFrango = new Salgado();
