@@ -21,8 +21,8 @@ public class MainSistema {
 		boolean continuar = true;
 
 		criaEstoque();
-		
-		//MENU PRINCIPAL:
+
+		// MENU PRINCIPAL:
 
 		do {
 
@@ -130,8 +130,8 @@ public class MainSistema {
 		} while (escolha != 4);
 
 		scanner.close();
-		
-		//FORMA DE PAGAMENTO:
+
+		// FORMA DE PAGAMENTO:
 
 		System.out.println("Escolha a forma de pagamento: ");
 		System.out.println("Digite 1 para cartão de crédito");
@@ -153,22 +153,21 @@ public class MainSistema {
 
 		System.out.println("Volte sempre!!");
 	}
-	
+
 	// METODOS:
 
 	private static void verAguas() {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Você escolheu ver as águas");
+		System.out.println("Digite 1 para água com gás");
+		System.out.println("Digite 2 para água sem gás");
+		System.out.println("Escolha uma opção: ");
+
+		int opcao = Integer.valueOf(scanner.nextLine());
 
 		for (Bebida bebida : bebidas) {
 			if (bebida.getTipo().equals("Aguas")) {
 				System.out.println(bebida.getNome());
-				// todos os Aguas aqui
-
-				System.out.println("Digite 1 para água com gás");
-				System.out.println("Digite 2 para água sem gás");
-				int opcao = Integer.valueOf(scanner.nextLine());
-
 				if (opcao == 1) {
 					for (Bebida AguaGas : bebidas) {
 						System.out.println(AguaGas.getNome());
@@ -178,7 +177,7 @@ public class MainSistema {
 						System.out.println(AguaGas.getTipo());
 
 					}
-				} else {
+				} else if (opcao == 2) {
 					for (Bebida AguaSem : bebidas) {
 						System.out.println(AguaSem.getNome());
 						System.out.println(AguaSem.getSabor());
@@ -190,20 +189,20 @@ public class MainSistema {
 
 			}
 		}
-		
+
 	}
 
 	private static void verCafes() {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Você escolheu ver os cafes");
+		System.out.println("Digite 1 para café com leite");
+		System.out.println("Digite 2 para café puro");
+		System.out.println("Escolha sua opção: ");
 
 		for (Bebida bebida : bebidas) {
 			if (bebida.getTipo().equals("Cafes")) {
 				System.out.println(bebida.getNome());
-				// todos os Cafes aqui
-
-				System.out.println("Digite 1 para café com leite");
-				System.out.println("Digite 2 para café puro");
+				
 				int opcao = Integer.valueOf(scanner.nextLine());
 
 				if (opcao == 1) {
@@ -226,7 +225,7 @@ public class MainSistema {
 				}
 			}
 		}
-		
+
 	}
 
 	private static void verRefrigerantes() {
@@ -262,7 +261,7 @@ public class MainSistema {
 				}
 			}
 		}
-		
+
 	}
 
 	private static void verBolo() {
@@ -271,7 +270,6 @@ public class MainSistema {
 		for (Doce doce : doces) {
 			if (doce.getTipo().equals("Bolo de chocolate")) {
 				System.out.println(doce.getNome());
-				
 
 				for (Doce Bolo : doces) {
 					System.out.println(Bolo.getNome());
@@ -284,7 +282,7 @@ public class MainSistema {
 				// opcao = Integer.valueOf(scanner.nextLine());
 			}
 		}
-		
+
 	}
 
 	private static void verAcai() {
@@ -304,7 +302,7 @@ public class MainSistema {
 
 //			opcao = Integer.valueOf(scanner.nextLine());
 		}
-		
+
 	}
 
 	private static void verBrigadeiros() {
@@ -328,12 +326,12 @@ public class MainSistema {
 
 			}
 		}
-		
+
 	}
 
 	private static void voltarMenu() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	private static void verCoxinha() {
@@ -445,7 +443,8 @@ public class MainSistema {
 		Salgado coxinhaFrango = new Salgado();
 		coxinhaFrango.setNome("Coxinha");
 		coxinhaFrango.setSabor("Sabor Frango");
-		coxinhaFrango.setDescricao("Ingredientes: água, manteiga, sal, cubinhos de caldo de galinha esfarelados, farinha de trigo, azeite, alho, peito de frango, salsinha picadinha, ovo, leite e farinha de rosca");
+		coxinhaFrango.setDescricao(
+				"Ingredientes: água, manteiga, sal, cubinhos de caldo de galinha esfarelados, farinha de trigo, azeite, alho, peito de frango, salsinha picadinha, ovo, leite e farinha de rosca");
 		coxinhaFrango.setPreco(5.00);
 		coxinhaFrango.setTipo("coxinha de frango");
 
