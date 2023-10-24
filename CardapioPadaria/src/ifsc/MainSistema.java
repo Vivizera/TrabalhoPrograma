@@ -34,11 +34,11 @@ public class MainSistema {
 			System.out.print("Escolha uma opção: ");
 			escolha = Integer.valueOf(scanner.nextLine());
 			ItemCompra itemCompra = new ItemCompra(nomeDoProduto, precoDoProduto);
-	        produtosComprados.add(itemCompra);
-	        
+			produtosComprados.add(itemCompra);
+
 			switch (escolha) {
 			case 1:
-				System.out.println("Você escolheu salgados");
+				System.out.println("Você escolheu salgados\n");
 
 				while (opcao != 4) {
 					System.out.println("Digite 1 para ver os pasteis");
@@ -68,12 +68,12 @@ public class MainSistema {
 				break;
 
 			case 2:
-				System.out.println("Você escolheu doces");
+				System.out.println("Você escolheu doces\n");
 
 				while (opcao != 3) {
 					System.out.println("Digite 1 para ver os brigadeiros");
 					System.out.println("Digite 2 para ver o açaí");
-					System.out.println("Digite 3 para ver o bolo de chocolate");
+					System.out.println("Digite 3 para ver o bolo");
 					System.out.print("Escolha uma opção: ");
 					opcao = Integer.valueOf(scanner.nextLine());
 
@@ -133,9 +133,7 @@ public class MainSistema {
 
 		scanner.close();
 
-		// FORMA DE PAGAMENTO:
-
-		System.out.println("Escolha a forma de pagamento: ");
+		System.out.println("Escolha a forma de pagamento\n: ");
 		System.out.println("Digite 1 para cartão de crédito");
 		System.out.println("Digite 2 para cartão de débito");
 		System.out.println("Digite 3 para pix");
@@ -154,189 +152,354 @@ public class MainSistema {
 		}
 
 		// Após o pagamento, imprimir a lista de compras e o total:
-		
+
 		System.out.println("Lista de Compras:");
 		for (ItemCompra item : produtosComprados) {
-		    System.out.println(item.getNome() + " - R$" + item.getPreco());
-		    total += item.getPreco();
+			System.out.println(item.getNome() + " - R$" + item.getPreco());
+			total += item.getPreco();
 		}
 		System.out.println("Total: R$" + total);
 		System.out.println("Volte sempre!!");
-	}
+}
+
 
 	// METODOS:
 
 	private static void verAguas() {
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Você escolheu ver as águas");
+		System.out.println("Você escolheu ver as águas\n");
 		System.out.println("Digite 1 para água com gás");
 		System.out.println("Digite 2 para água sem gás");
 		System.out.println("Escolha uma opção: ");
 
 		int opcao = Integer.valueOf(scanner.nextLine());
 
-		for (Bebida bebida : bebidas) {
-			if (bebida.getTipo().equals("Aguas")) {
-				System.out.println(bebida.getNome());
-				if (opcao == 1) {
-					for (Bebida AguaGas : bebidas) {
-						System.out.println(AguaGas.getNome());
-						System.out.println(AguaGas.getSabor());
-						System.out.println(AguaGas.getDescricao());
-						System.out.println(AguaGas.getPreco());
-						System.out.println(AguaGas.getTipo());
-
-					}
-				} else if (opcao == 2) {
-					for (Bebida AguaSem : bebidas) {
-						System.out.println(AguaSem.getNome());
-						System.out.println(AguaSem.getSabor());
-						System.out.println(AguaSem.getDescricao());
-						System.out.println(AguaSem.getPreco());
-						System.out.println(AguaSem.getTipo());
-					}
+		if (opcao == 1) {
+			for (Bebida bebida : bebidas) {
+				if (bebida.getTipo().equals("Agua com gás")) {
+					System.out.println("Bebida: " + bebida.getNome());
+					System.out.println("Sabor: " + bebida.getSabor());
+					System.out.println("Ingredientes: " + bebida.getDescricao());
+					System.out.println("Preço: R$" + bebida.getPreco());
+					// System.out.println("Tipo: " + bebida.getTipo());
 				}
-
+			}
+		} else if (opcao == 2) {
+			for (Bebida bebida : bebidas) {
+				if (bebida.getTipo().equals("Agua sem gás")) {
+					System.out.println("Bebida: " + bebida.getNome());
+					System.out.println("Sabor: " + bebida.getSabor());
+					System.out.println("Ingredientes: " + bebida.getDescricao());
+					System.out.println("Preço: R$" + bebida.getPreco());
+					// System.out.println("Tipo: " + bebida.getTipo());
+				}
 			}
 		}
+		System.out.println("Deseja mais alguma coisa?\n");
+		System.out.println("Digite 1 para sim");
+		System.out.println("DIgite 2 para não");
 
+		int op = Integer.valueOf(scanner.nextLine());
+
+		if (op == 1) {
+			voltarMenu();
+		} else if (op == 2) {
+			formaPagamento();
+		}
 	}
 
 	private static void verCafes() {
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Você escolheu ver os cafes");
+		System.out.println("Você escolheu ver os cafes\n");
 		System.out.println("Digite 1 para café com leite");
 		System.out.println("Digite 2 para café puro");
 		System.out.println("Escolha sua opção: ");
 
-		for (Bebida bebida : bebidas) {
-			if (bebida.getTipo().equals("Cafes")) {
-				System.out.println(bebida.getNome());
-				
-				int opcao = Integer.valueOf(scanner.nextLine());
+		int opcao = Integer.valueOf(scanner.nextLine());
 
-				if (opcao == 1) {
-					for (Bebida CafeLeite : bebidas) {
-						System.out.println(CafeLeite.getNome());
-						System.out.println(CafeLeite.getSabor());
-						System.out.println(CafeLeite.getDescricao());
-						System.out.println(CafeLeite.getPreco());
-						System.out.println(CafeLeite.getTipo());
-
-					}
-				} else {
-					for (Bebida CafePuro : bebidas) {
-						System.out.println(CafePuro.getNome());
-						System.out.println(CafePuro.getSabor());
-						System.out.println(CafePuro.getDescricao());
-						System.out.println(CafePuro.getPreco());
-						System.out.println(CafePuro.getTipo());
-					}
+		if (opcao == 1) {
+			for (Bebida bebida : bebidas) {
+				if (bebida.getTipo().equals("Café com leite")) {
+					System.out.println("Bebida: " + bebida.getNome());
+					System.out.println("Sabor: " + bebida.getSabor());
+					System.out.println("Ingredientes: " + bebida.getDescricao());
+					System.out.println("Preço: R$" + bebida.getPreco());
+					// System.out.println("Tipo: " + bebida.getTipo());
+				}
+			}
+		} else if (opcao == 2) {
+			for (Bebida bebida : bebidas) {
+				if (bebida.getTipo().equals("Café sem leite")) {
+					System.out.println("Bebida: " + bebida.getNome());
+					System.out.println("Sabor: " + bebida.getSabor());
+					System.out.println("Ingredientes: " + bebida.getDescricao());
+					System.out.println("Preço: R$" + bebida.getPreco());
+					// System.out.println("Tipo: " + bebida.getTipo());
 				}
 			}
 		}
+		System.out.println("Deseja mais alguma coisa?\n");
+		System.out.println("Digite 1 para sim");
+		System.out.println("DIgite 2 para não");
 
+		int op = Integer.valueOf(scanner.nextLine());
+
+		if (op == 1) {
+			voltarMenu();
+		} else if (op == 2) {
+			formaPagamento();
+		}
 	}
 
 	private static void verRefrigerantes() {
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Você escolheu ver os refrigerantes");
+		System.out.println("Você escolheu ver os refrigerantes\n");
+		System.out.println("Digite 1 para Guarana");
+		System.out.println("Digite 2 para Coca-cola");
 
-		for (Bebida bebida : bebidas) {
-			if (bebida.getTipo().equals("Refrigerante")) {
-				System.out.println(bebida.getNome());
-				// todos os Refrigerante aqui
+		int opcao = Integer.valueOf(scanner.nextLine());
 
-				System.out.println("Digite 1 para Guarana");
-				System.out.println("Digite 2 para Coca-cola");
-				int opcao = Integer.valueOf(scanner.nextLine());
-
-				if (opcao == 1) {
-					for (Bebida Guarana : bebidas) {
-						System.out.println(Guarana.getNome());
-						System.out.println(Guarana.getSabor());
-						System.out.println(Guarana.getDescricao());
-						System.out.println(Guarana.getPreco());
-						System.out.println(Guarana.getTipo());
-
-					}
-				} else {
-					for (Bebida CocaCola : bebidas) {
-						System.out.println(CocaCola.getNome());
-						System.out.println(CocaCola.getSabor());
-						System.out.println(CocaCola.getDescricao());
-						System.out.println(CocaCola.getPreco());
-						System.out.println(CocaCola.getTipo());
-					}
+		if (opcao == 1) {
+			for (Bebida bebida : bebidas) {
+				if (bebida.getTipo().equals("Guarana")) {
+					System.out.println("Bebida: " + bebida.getNome());
+					System.out.println("Sabor: " + bebida.getSabor());
+					System.out.println("Ingredientes: " + bebida.getDescricao());
+					System.out.println("Preço: R$" + bebida.getPreco());
+					// System.out.println("Tipo: " + bebida.getTipo());
+				}
+			}
+		} else if (opcao == 2) {
+			for (Bebida bebida : bebidas) {
+				if (bebida.getTipo().equals("CocaCola")) {
+					System.out.println("Bebida: " + bebida.getNome());
+					System.out.println("Sabor: " + bebida.getSabor());
+					System.out.println("Ingredientes: " + bebida.getDescricao());
+					System.out.println("Preço: R$" + bebida.getPreco());
+					// System.out.println("Tipo: " + bebida.getTipo());
 				}
 			}
 		}
+		System.out.println("Deseja mais alguma coisa?\n");
+		System.out.println("Digite 1 para sim");
+		System.out.println("DIgite 2 para não");
 
+		int op = Integer.valueOf(scanner.nextLine());
+
+		if (op == 1) {
+			voltarMenu();
+		} else if (op == 2) {
+			formaPagamento();
+		}
 	}
 
 	private static void verBolo() {
-		System.out.println("Você escolheu ver o bolo de chocolate");
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Você escolheu ver bolo\n");
+		System.out.println("Digite 1 para Bolo de chocolate");
+		System.out.println("Digite 2 para Bolo de cenoura");
 
-		for (Doce doce : doces) {
-			if (doce.getTipo().equals("Bolo de chocolate")) {
-				System.out.println(doce.getNome());
+		int opcao = Integer.valueOf(scanner.nextLine());
 
-				for (Doce Bolo : doces) {
-					System.out.println(Bolo.getNome());
-					System.out.println(Bolo.getSabor());
-					System.out.println(Bolo.getDescricao());
-					System.out.println(Bolo.getPreco());
-					System.out.println(Bolo.getTipo());
-
+		if (opcao == 1) {
+			for (Doce doce : doces) {
+				if (doce.getTipo().equals("Bolo de chocolate")) {
+					System.out.println("Bebida: " + doce.getNome());
+					System.out.println("Sabor: " + doce.getSabor());
+					System.out.println("Ingredientes: " + doce.getDescricao());
+					System.out.println("Preço: R$" + doce.getPreco());
+					// System.out.println("Tipo: " + bebida.getTipo());
 				}
-				// opcao = Integer.valueOf(scanner.nextLine());
+			}
+		} else if (opcao == 2) {
+			for (Doce doce : doces) {
+				if (doce.getTipo().equals("Bolo de cenoura")) {
+					System.out.println("Bebida: " + doce.getNome());
+					System.out.println("Sabor: " + doce.getSabor());
+					System.out.println("Ingredientes: " + doce.getDescricao());
+					System.out.println("Preço: R$" + doce.getPreco());
+					// System.out.println("Tipo: " + bebida.getTipo());
+				}
 			}
 		}
+		System.out.println("Deseja mais alguma coisa?\n");
+		System.out.println("Digite 1 para sim");
+		System.out.println("DIgite 2 para não");
 
+		int op = Integer.valueOf(scanner.nextLine());
+
+		if (op == 1) {
+			voltarMenu();
+		} else if (op == 2) {
+			formaPagamento();
+		}
 	}
 
 	private static void verAcai() {
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Você escolheu ver o açaí");
+		System.out.println("Você escolheu ver o açaí\n");
 
 		for (Doce doce : doces) {
 			if (doce.getTipo().equals("Açaí")) {
-				System.out.println(doce.getNome());
-				System.out.println(doce.getNome());
-				System.out.println(doce.getSabor());
-				System.out.println(doce.getDescricao());
-				System.out.println(doce.getPreco());
-				System.out.println(doce.getTipo());
+				System.out.println("Doce: " + doce.getNome());
+				System.out.println("Sabor: " + doce.getSabor());
+				System.out.println("Ingredientes: " + doce.getDescricao());
+				System.out.println("Preço: R$" + doce.getPreco());
+				// System.out.println(doce.getTipo());
 
 			}
 
-//			opcao = Integer.valueOf(scanner.nextLine());
 		}
+		System.out.println("Deseja mais alguma coisa?\n");
+		System.out.println("Digite 1 para sim");
+		System.out.println("DIgite 2 para não");
 
+		int op = Integer.valueOf(scanner.nextLine());
+
+		if (op == 1) {
+			voltarMenu();
+		} else if (op == 2) {
+			formaPagamento();
+		}
 	}
 
 	private static void verBrigadeiros() {
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Você escolheu ver os brigadeiros");
+		System.out.println("Você escolheu ver os brigadeiros\n");
+		System.out.println("Digite 1 para brigadeiro de chocolate");
+		System.out.println("Digite 2 para brigadeiro de doce de leite");
 
-		for (Doce doce : doces) {
-			if (doce.getTipo().equals("Brigadeiro")) {
-				System.out.println(doce.getNome());
-				// todos os Brigadeiro aqui
+		int opcao = Integer.valueOf(scanner.nextLine());
 
-				int opcao = Integer.valueOf(scanner.nextLine());
-
-				for (Doce Brigadeiro : doces) {
-					System.out.println(Brigadeiro.getNome());
-					System.out.println(Brigadeiro.getSabor());
-					System.out.println(Brigadeiro.getDescricao());
-					System.out.println(Brigadeiro.getPreco());
-					System.out.println(Brigadeiro.getTipo());
+		if (opcao == 1) {
+			for (Doce doce : doces) {
+				if (doce.getTipo().equals("Brigadeiro de chocolate")) {
+					System.out.println("Doce: " + doce.getNome());
+					System.out.println("Sabor: " + doce.getSabor());
+					System.out.println("Ingredientes: " + doce.getDescricao());
+					System.out.println("Preço: R$" + doce.getPreco());
+					// System.out.println("Tipo: " + bebida.getTipo());
 				}
+			}
+		} else if (opcao == 2) {
+			for (Doce doce : doces) {
+				if (doce.getTipo().equals("Brigadeiro de doce de leite")) {
+					System.out.println("Doce: " + doce.getNome());
+					System.out.println("Sabor: " + doce.getSabor());
+					System.out.println("Ingredientes: " + doce.getDescricao());
+					System.out.println("Preço: R$" + doce.getPreco());
+					// System.out.println("Tipo: " + bebida.getTipo());
+				}
+			}
+		}
+		System.out.println("Deseja mais alguma coisa?\n");
+		System.out.println("Digite 1 para sim");
+		System.out.println("DIgite 2 para não");
+
+		int op = Integer.valueOf(scanner.nextLine());
+
+		if (op == 1) {
+			voltarMenu();
+		} else if (op == 2) {
+			formaPagamento();
+		}
+	}
+
+	private static void verCoxinha() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Você escolheu ver a coxinha de frango\n");
+
+		for (Salgado salgado : salgados) {
+			if (salgado.getTipo().equals("Coxinha de frango")) {
+				System.out.println("Salgado: " + salgado.getNome());
+				System.out.println("Sabor: " + salgado.getSabor());
+				System.out.println("Ingrediente: " + salgado.getDescricao());
+				System.out.println("Preço: R$ " + salgado.getPreco());
+				// System.out.println("Salgado: " + salgado.getTipo());
 
 			}
 		}
+		System.out.println("Deseja mais alguma coisa?\n");
+		System.out.println("Digite 1 para sim");
+		System.out.println("DIgite 2 para não");
 
+		int op = Integer.valueOf(scanner.nextLine());
+
+		if (op == 1) {
+			voltarMenu();
+		} else if (op == 2) {
+			formaPagamento();
+		}
+	}
+
+	private static void verBolinho() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Você escolheu ver o bolhinho de carne\n");
+
+		for (Salgado salgado : salgados) {
+			if (salgado.getTipo().equals("bolinho de carne")) {
+				System.out.println("Salgado: " + salgado.getNome());
+				System.out.println("Sabor: " + salgado.getSabor());
+				System.out.println("Ingredientes: " + salgado.getDescricao());
+				System.out.println("Preço: R$" + salgado.getPreco());
+				// System.out.println(salgado.getTipo());
+
+			}
+
+		}
+		System.out.println("Deseja mais alguma coisa?\n");
+		System.out.println("Digite 1 para sim");
+		System.out.println("DIgite 2 para não");
+
+		int op = Integer.valueOf(scanner.nextLine());
+
+		if (op == 1) {
+			voltarMenu();
+		} else if (op == 2) {
+			formaPagamento();
+		}
+	}
+
+	private static void verPasteis() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Você escolheu ver os pasteis\n");
+		System.out.println("Digite 1 para Pastel de Frango");
+		System.out.println("Digite 2 para Pastel de Carne");
+
+		int opcao = Integer.valueOf(scanner.nextLine());
+
+		if (opcao == 1) {
+			for (Salgado salgado : salgados) {
+				if (salgado.getTipo().equals("pastel de frango")) {
+					System.out.println("Bebida: " + salgado.getNome());
+					System.out.println("Sabor: " + salgado.getSabor());
+					System.out.println("Ingredientes: " + salgado.getDescricao());
+					System.out.println("Preço: R$" + salgado.getPreco());
+					// System.out.println("Tipo: " + bebida.getTipo());
+				}
+			}
+		} else if (opcao == 2) {
+			for (Salgado salgado : salgados) {
+				if (salgado.getTipo().equals("pastel de carne")) {
+					System.out.println("Bebida: " + salgado.getNome());
+					System.out.println("Sabor: " + salgado.getSabor());
+					System.out.println("Ingredientes: " + salgado.getDescricao());
+					System.out.println("Preço: R$" + salgado.getPreco());
+					// System.out.println("Tipo: " + bebida.getTipo());
+				}
+			}
+		}
+		System.out.println("Deseja mais alguma coisa?\n");
+		System.out.println("Digite 1 para sim");
+		System.out.println("DIgite 2 para não");
+
+		int op = Integer.valueOf(scanner.nextLine());
+
+		if (op == 1) {
+			voltarMenu();
+		} else if (op == 2) {
+			formaPagamento();
+		}
 	}
 
 	private static void voltarMenu() {
@@ -344,110 +507,30 @@ public class MainSistema {
 
 	}
 
-	private static void verCoxinha() {
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Você escolheu ver a coxinha de frango");
-
-		for (Salgado salgado : salgados) {
-			if (salgado.getTipo().equals("Coxinha de frango")) {
-				System.out.println(salgado.getNome());
-				// todos os coxinha aqui
-
-				int opcao = Integer.valueOf(scanner.nextLine());
-
-				for (Salgado coxinhaFrango : salgados) {
-					System.out.println(coxinhaFrango.getNome());
-					System.out.println(coxinhaFrango.getSabor());
-					System.out.println(coxinhaFrango.getDescricao());
-					System.out.println(coxinhaFrango.getPreco());
-					System.out.println(coxinhaFrango.getTipo());
-
-				}
-			}
-		}
+	private static void formaPagamento() {
+		// FORMA DE PAGAMENTO:
+	
 	}
-
-	private static void verBolinho() {
-
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Você escolheu ver o bolhinho de carne");
-		for (Salgado salgado : salgados) {
-			if (salgado.getTipo().equals("bolinho de carne")) {
-				System.out.println(salgado.getNome());
-				// todos os bolinho aqui
-
-				int opcao = Integer.valueOf(scanner.nextLine());
-
-				for (Salgado bolinhoCarne : salgados) {
-					System.out.println(bolinhoCarne.getNome());
-					System.out.println(bolinhoCarne.getSabor());
-					System.out.println(bolinhoCarne.getDescricao());
-					System.out.println(bolinhoCarne.getPreco());
-					System.out.println(bolinhoCarne.getTipo());
-
-				}
-
-			}
-		}
-
-	}
-
-	private static void verPasteis() {
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Você escolheu ver os pasteis");
-
-		for (Salgado salgado : salgados) {
-			if (salgado.getTipo().equals("pastel")) {
-				System.out.println(salgado.getNome());
-				// todos os pastelzinho aqui
-
-				System.out.println("Digite 1 para Pastel de Frango");
-				System.out.println("Digite 2 para Pastel de Carne");
-				int opcao = Integer.valueOf(scanner.nextLine());
-
-				if (opcao == 1) {
-					for (Salgado pastelFrango : salgados) {
-						System.out.println(pastelFrango.getNome());
-						System.out.println(pastelFrango.getSabor());
-						System.out.println(pastelFrango.getDescricao());
-						System.out.println(pastelFrango.getPreco());
-						System.out.println(pastelFrango.getTipo());
-
-					}
-				} else {
-					for (Salgado pastelCarne : salgados) {
-						System.out.println(pastelCarne.getNome());
-						System.out.println(pastelCarne.getSabor());
-						System.out.println(pastelCarne.getDescricao());
-						System.out.println(pastelCarne.getPreco());
-						System.out.println(pastelCarne.getTipo());
-					}
-				}
-				
-
-			}
-			}
-		}
 
 	public static void criaEstoque() {
 		Salgado pastelFrango = new Salgado();
 		pastelFrango.setNome("Pastel");
 		pastelFrango.setSabor("Sabor Frango");
-		pastelFrango.setDescricao("Ingredientes: frango, molho, farinha de trigo, óleo, sal, ovo e água.");
+		pastelFrango.setDescricao(" frango, molho, farinha de trigo, óleo, sal, ovo e água.");
 		pastelFrango.setPreco(6.00);
 		pastelFrango.setTipo("pastel de frango");
 
 		Salgado pastelCarne = new Salgado();
 		pastelCarne.setNome("Pastel");
 		pastelCarne.setSabor("Sabor Carne");
-		pastelCarne.setDescricao("Ingredientes: carne, molho, farinha de trigo, óleo, sal, ovo e água.");
+		pastelCarne.setDescricao(" carne, molho, farinha de trigo, óleo, sal, ovo e água.");
 		pastelCarne.setPreco(6.00);
 		pastelCarne.setTipo("pastel de carne");
 
 		Salgado bolinhoCarne = new Salgado();
 		bolinhoCarne.setNome("Bolinho");
 		bolinhoCarne.setSabor("Sabor Carne");
-		bolinhoCarne.setDescricao("Ingredientes: carne moída, cebola, ovo, farinha de trigo e alho");
+		bolinhoCarne.setDescricao(" carne moída, cebola, ovo, farinha de trigo e alho");
 		bolinhoCarne.setPreco(4.0);
 		bolinhoCarne.setTipo("bolinho de carne");
 
@@ -455,7 +538,7 @@ public class MainSistema {
 		coxinhaFrango.setNome("Coxinha");
 		coxinhaFrango.setSabor("Sabor Frango");
 		coxinhaFrango.setDescricao(
-				"Ingredientes: água, manteiga, sal, cubinhos de caldo de galinha esfarelados, farinha de trigo, azeite, alho, peito de frango, salsinha picadinha, ovo, leite e farinha de rosca");
+				"água, manteiga, sal, cubinhos de caldo de galinha esfarelados, farinha de trigo, azeite, alho, peito de frango, salsinha picadinha, ovo, leite e farinha de rosca");
 		coxinhaFrango.setPreco(5.00);
 		coxinhaFrango.setTipo("coxinha de frango");
 
@@ -466,31 +549,47 @@ public class MainSistema {
 		Doce Brigadeiro = new Doce();
 		Brigadeiro.setNome("Brigadeiro");
 		Brigadeiro.setSabor("Sabor Chocolate");
-		Brigadeiro.setDescricao("Ingredientes: leite condensado, manteiga, e Nescau.");
+		Brigadeiro.setDescricao("leite condensado, manteiga, e Nescau.");
 		Brigadeiro.setPreco(3.00);
 		Brigadeiro.setTipo("Brigadeiro de chocolate");
+
+		Doce BrigadeiroLeite = new Doce();
+		BrigadeiroLeite.setNome("Brigadeiro");
+		BrigadeiroLeite.setSabor("Doce de Leite");
+		BrigadeiroLeite.setDescricao("leite condensado, manteiga, e Nescau.");
+		BrigadeiroLeite.setPreco(3.00);
+		BrigadeiroLeite.setTipo("Brigadeiro de doce de leite");
 
 		Doce Acai = new Doce();
 		Acai.setNome("Açaí");
 		Acai.setSabor("Sabor açaí");
-		Acai.setDescricao("Ingredientes: fruta açaí e açucar.");
+		Acai.setDescricao(" fruta açaí e açucar.");
 		Acai.setPreco(6.00);
 		Acai.setTipo("Açaí");
 
-		Doce Bolo = new Doce();
-		Bolo.setNome("Bolo");
-		Bolo.setSabor("Sabor chocolate");
-		Bolo.setDescricao("Ingredientes: ovos, manteiga, açucar, leite, chocolate em pó, farinha de trigo e fermento");
-		Bolo.setPreco(6.00);
-		Bolo.setTipo("Bolo de chocolate");
+		Doce BoloChoco = new Doce();
+		BoloChoco.setNome("Bolo");
+		BoloChoco.setSabor("Sabor chocolate");
+		BoloChoco.setDescricao("ovos, manteiga, açucar, leite, chocolate em pó, farinha de trigo e fermento");
+		BoloChoco.setPreco(6.00);
+		BoloChoco.setTipo("Bolo de chocolate");
+
+		Doce BoloCeno = new Doce();
+		BoloCeno.setNome("Bolo");
+		BoloCeno.setSabor("Sabor cenoura");
+		BoloCeno.setDescricao("ovos, manteiga, açucar, leite, chocolate em pó, farinha de trigo e fermento");
+		BoloCeno.setPreco(6.00);
+		BoloCeno.setTipo("Bolo de cenoura");
 
 		doces.add(Brigadeiro);
+		doces.add(BrigadeiroLeite);
 		doces.add(Acai);
-		doces.add(Bolo);
+		doces.add(BoloChoco);
+		doces.add(BoloCeno);
 
 		Bebida Guarana = new Bebida();
 		Guarana.setNome("Refrigerantes");
-		Guarana.setSabor("Sabor Guarana");
+		Guarana.setSabor("Guarana");
 		Guarana.setPreco(5.00);
 		Guarana.setTipo("Guarana");
 
@@ -503,28 +602,28 @@ public class MainSistema {
 		Bebida CafeLeite = new Bebida();
 		CafeLeite.setNome("Cafe");
 		CafeLeite.setSabor("Com leite");
-		CafeLeite.setDescricao("Ingredientes: leite e cafe.");
+		CafeLeite.setDescricao("leite e cafe");
 		CafeLeite.setPreco(3.00);
 		CafeLeite.setTipo("Café com leite");
 
 		Bebida CafePuro = new Bebida();
 		CafePuro.setNome("Cafe");
 		CafePuro.setSabor("Puro");
-		CafePuro.setDescricao("Ingredientes: cafe.");
+		CafePuro.setDescricao("cafe");
 		CafePuro.setPreco(3.00);
 		CafePuro.setTipo("Café sem leite");
 
 		Bebida AguaGas = new Bebida();
 		AguaGas.setNome("Água");
 		AguaGas.setSabor("Com gas");
-		AguaGas.setDescricao("Ingredientes: água e gas.");
+		AguaGas.setDescricao("água e gas");
 		AguaGas.setPreco(2.00);
 		AguaGas.setTipo("Agua com gás");
 
 		Bebida AguaSem = new Bebida();
 		AguaSem.setNome("Água");
 		AguaSem.setSabor("Sem gas");
-		AguaSem.setDescricao("Ingredientes: água.");
+		AguaSem.setDescricao("água");
 		AguaSem.setPreco(2.00);
 		AguaSem.setTipo("Agua sem gás");
 
