@@ -55,17 +55,13 @@ public class MainSistema {
 					} else if (opcao == 3) {
 						verCoxinha();
 					} else if (opcao == 4) {
-						continuar = false;
-						voltarMenu();
+						opcao = 4;
+						break;
 					} else {
 						System.out.println("Opção inválida. Tente novamente.");
 					}
 				}
-				while (continuar)
-					;
-				continuar = true;
-				break;
-
+				
 			case 2:
 				System.out.println("Você escolheu doces\n");
 
@@ -84,15 +80,12 @@ public class MainSistema {
 						verBolo();
 					} else if (opcao == 4) {
 						continuar = false;
-						voltarMenu();
+						
 					} else {
 						System.out.println("Opção inválida. Tente novamente.");
 					}
 				}
-				while (continuar)
-					;
-				continuar = true;
-				break;
+				
 
 			case 3:
 
@@ -111,15 +104,11 @@ public class MainSistema {
 						verAguas();
 					} else if (opcao == 4) {
 						continuar = false;
-						voltarMenu();
 					} else {
 						System.out.println("Opção inválida. Tente novamente.");
 					}
 				}
-				while (continuar)
-					;
-				continuar = true;
-				break;
+			
 			case 4:
 				System.out.println("Fechando o sistema!");
 				break;
@@ -128,7 +117,7 @@ public class MainSistema {
 
 			}
 
-		} while (escolha != 4);
+		} while (escolha != 3);
 
 		scanner.close();
 
@@ -174,7 +163,7 @@ public class MainSistema {
 		int op = Integer.valueOf(scanner.nextLine());
 
 		if (op == 1) {
-			voltarMenu();
+			
 		} else if (op == 2) {
 			formaPagamento();
 		}
@@ -217,7 +206,7 @@ public class MainSistema {
 		int op = Integer.valueOf(scanner.nextLine());
 
 		if (op == 1) {
-			voltarMenu();
+			
 		} else if (op == 2) {
 			formaPagamento();
 		}
@@ -259,7 +248,7 @@ public class MainSistema {
 		int op = Integer.valueOf(scanner.nextLine());
 
 		if (op == 1) {
-			voltarMenu();
+			
 		} else if (op == 2) {
 			formaPagamento();
 		}
@@ -301,7 +290,7 @@ public class MainSistema {
 		int op = Integer.valueOf(scanner.nextLine());
 
 		if (op == 1) {
-			voltarMenu();
+			
 		} else if (op == 2) {
 			formaPagamento();
 		}
@@ -329,7 +318,7 @@ public class MainSistema {
 		int op = Integer.valueOf(scanner.nextLine());
 
 		if (op == 1) {
-			voltarMenu();
+			
 		} else if (op == 2) {
 			formaPagamento();
 		}
@@ -371,7 +360,7 @@ public class MainSistema {
 		int op = Integer.valueOf(scanner.nextLine());
 
 		if (op == 1) {
-			voltarMenu();
+			
 		} else if (op == 2) {
 			formaPagamento();
 		}
@@ -398,7 +387,7 @@ public class MainSistema {
 		int op = Integer.valueOf(scanner.nextLine());
 
 		if (op == 1) {
-			voltarMenu();
+			
 		} else if (op == 2) {
 			formaPagamento();
 		}
@@ -426,7 +415,7 @@ public class MainSistema {
 		int op = Integer.valueOf(scanner.nextLine());
 
 		if (op == 1) {
-			voltarMenu();
+			
 		} else if (op == 2) {
 			formaPagamento();
 		}
@@ -468,26 +457,15 @@ public class MainSistema {
 		int op = Integer.valueOf(scanner.nextLine());
 
 		if (op == 1) {
-			voltarMenu();
+			
 		} else if (op == 2) {
 			formaPagamento();
 		}
 	}
 
-	private static void voltarMenu() {
-		// TODO Auto-generated method stub
-		continuar = false;
-
-		while (continuar)
-			;
-		continuar = true;
-		break;
-
-	}
-
 	private static void formaPagamento() {
 		// FORMA DE PAGAMENTO:
-		
+		Scanner scanner = new Scanner(System.in);
 		System.out.println("Lista de Compras:");
 
 		double total = 0;
