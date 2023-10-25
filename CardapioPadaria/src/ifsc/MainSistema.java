@@ -54,7 +54,6 @@ public class MainSistema {
 						verBolinho();
 					} else if (opcao == 3) {
 						verCoxinha();
-						voltarMenu();
 					} else if (opcao == 4) {
 						continuar = false;
 						voltarMenu();
@@ -133,35 +132,7 @@ public class MainSistema {
 
 		scanner.close();
 
-		System.out.println("Escolha a forma de pagamento\n: ");
-		System.out.println("Digite 1 para cartão de crédito");
-		System.out.println("Digite 2 para cartão de débito");
-		System.out.println("Digite 3 para pix");
-		System.out.println("Digite 4 para dinheiro");
-
-		opcao = Integer.valueOf(scanner.nextLine());
-
-		if (opcao == 1) {
-			System.out.println("Pagamento concluido!");
-		} else if (opcao == 2) {
-			System.out.println("Pagamento concluido!");
-		} else if (opcao == 3) {
-			System.out.println("Pagamento concluido!");
-		} else if (opcao == 4) {
-			System.out.println("Pagamento concluido!");
-		}
-
-		// Após o pagamento, imprimir a lista de compras e o total:
-
-		System.out.println("Lista de Compras:");
-		for (ItemCompra item : produtosComprados) {
-			System.out.println(item.getNome() + " - R$" + item.getPreco());
-			total += item.getPreco();
-		}
-		System.out.println("Total: R$" + total);
-		System.out.println("Volte sempre!!");
-}
-
+	}
 
 	// METODOS:
 
@@ -195,6 +166,7 @@ public class MainSistema {
 				}
 			}
 		}
+		
 		System.out.println("Deseja mais alguma coisa?\n");
 		System.out.println("Digite 1 para sim");
 		System.out.println("DIgite 2 para não");
@@ -504,12 +476,47 @@ public class MainSistema {
 
 	private static void voltarMenu() {
 		// TODO Auto-generated method stub
+		continuar = false;
+
+		while (continuar)
+			;
+		continuar = true;
+		break;
 
 	}
 
 	private static void formaPagamento() {
 		// FORMA DE PAGAMENTO:
-	
+		
+		System.out.println("Lista de Compras:");
+
+		double total = 0;
+
+		for (ItemCompra item : produtosComprados) {
+			System.out.println(item.getNome() + " - R$" + item.getPreco());
+			total += item.getPreco();
+		}
+		System.out.println("Total: R$" + total);
+		System.out.println("Volte sempre!!");
+
+		System.out.println("Escolha a forma de pagamento\n: ");
+		System.out.println("Digite 1 para cartão de crédito");
+		System.out.println("Digite 2 para cartão de débito");
+		System.out.println("Digite 3 para pix");
+		System.out.println("Digite 4 para dinheiro");
+
+		int opcao = Integer.valueOf(scanner.nextLine());
+
+		if (opcao == 1) {
+			System.out.println("Pagamento concluido!");
+		} else if (opcao == 2) {
+			System.out.println("Pagamento concluido!");
+		} else if (opcao == 3) {
+			System.out.println("Pagamento concluido!");
+		} else if (opcao == 4) {
+			System.out.println("Pagamento concluido!");
+		}
+
 	}
 
 	public static void criaEstoque() {
