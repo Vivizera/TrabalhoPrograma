@@ -1,14 +1,18 @@
-package ifsc;
+package visao;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import modelo.Bebida;
+import modelo.Doce;
+import modelo.Salgado;
 
 public class MainSistema {
 
 	private static ArrayList<Salgado> salgados = new ArrayList<>();
 	private static ArrayList<Doce> doces = new ArrayList<>();
 	private static ArrayList<Bebida> bebidas = new ArrayList<>();
-	private static ArrayList<ItemCompra> produtosComprados = new ArrayList<>();
+	
 
 	public static void main(String[] args) {
 
@@ -33,9 +37,7 @@ public class MainSistema {
 			System.out.println("Digite 4 para sair");
 			System.out.print("Escolha uma opção: ");
 			escolha = Integer.valueOf(scanner.nextLine());
-			ItemCompra itemCompra = new ItemCompra(nomeDoProduto, precoDoProduto);
-			produtosComprados.add(itemCompra);
-
+	
 			switch (escolha) {
 			case 1:
 				System.out.println("Você escolheu salgados\n");
@@ -470,10 +472,6 @@ public class MainSistema {
 
 		double total = 0;
 
-		for (ItemCompra item : produtosComprados) {
-			System.out.println(item.getNome() + " - R$" + item.getPreco());
-			total += item.getPreco();
-		}
 		System.out.println("Total: R$" + total);
 		System.out.println("Volte sempre!!");
 
