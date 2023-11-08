@@ -6,6 +6,24 @@ public abstract class Produto {
 	private String sabor;
 	private String descricao;
 	private Double preco;
+	private int codBarras;
+	private String valorCodBarras;
+
+	public String getValorCodBarras() {
+		return valorCodBarras;
+	}
+
+	public void setValorCodBarras(String valorCodBarras) {
+		this.valorCodBarras = valorCodBarras;
+	}
+
+	public int getCodBarras() {
+		return codBarras;
+	}
+
+	public void setCodBarras(int codBarras) {
+		this.codBarras = codBarras;
+	}
 
 	public Long getId() {
 		return id;
@@ -45,6 +63,12 @@ public abstract class Produto {
 
 	public void setPreco(Double preco) {
 		this.preco = preco;
+	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Codigo de barras: " + codBarras + " Preco: " + preco;
 	}
 
 }

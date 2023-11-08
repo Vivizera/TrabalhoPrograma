@@ -11,5 +11,6 @@ public class Salgado extends Produto {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
+	
 
 }

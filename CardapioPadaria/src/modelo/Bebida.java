@@ -12,5 +12,4 @@ public class Bebida extends Produto {
 		this.tipo = tipo;
 	}
 	
-	
 }
