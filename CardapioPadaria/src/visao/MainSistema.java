@@ -2,17 +2,12 @@ package visao;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import modelo.Bebida;
 import modelo.Doce;
 import modelo.Salgado;
 
 public class MainSistema {
 
-	private static ArrayList<Salgado> salgados = new ArrayList<>();
-	private static ArrayList<Doce> doces = new ArrayList<>();
-	private static ArrayList<Bebida> bebidas = new ArrayList<>();
-	
 
 	public static void main(String[] args) {
 
@@ -37,7 +32,7 @@ public class MainSistema {
 			System.out.println("Digite 4 para sair");
 			System.out.print("Escolha uma opção: ");
 			escolha = Integer.valueOf(scanner.nextLine());
-	
+
 			switch (escolha) {
 			case 1:
 				System.out.println("Você escolheu salgados\n");
@@ -63,7 +58,7 @@ public class MainSistema {
 						System.out.println("Opção inválida. Tente novamente.");
 					}
 				}
-				
+
 			case 2:
 				System.out.println("Você escolheu doces\n");
 
@@ -82,12 +77,11 @@ public class MainSistema {
 						verBolo();
 					} else if (opcao == 4) {
 						continuar = false;
-						
+
 					} else {
 						System.out.println("Opção inválida. Tente novamente.");
 					}
 				}
-				
 
 			case 3:
 
@@ -110,7 +104,7 @@ public class MainSistema {
 						System.out.println("Opção inválida. Tente novamente.");
 					}
 				}
-			
+
 			case 4:
 				System.out.println("Fechando o sistema!");
 				break;
@@ -157,7 +151,7 @@ public class MainSistema {
 				}
 			}
 		}
-		
+
 		System.out.println("Deseja mais alguma coisa?\n");
 		System.out.println("Digite 1 para sim");
 		System.out.println("DIgite 2 para não");
@@ -165,7 +159,7 @@ public class MainSistema {
 		int op = Integer.valueOf(scanner.nextLine());
 
 		if (op == 1) {
-			
+
 		} else if (op == 2) {
 			formaPagamento();
 		}
@@ -208,7 +202,7 @@ public class MainSistema {
 		int op = Integer.valueOf(scanner.nextLine());
 
 		if (op == 1) {
-			
+
 		} else if (op == 2) {
 			formaPagamento();
 		}
@@ -250,7 +244,7 @@ public class MainSistema {
 		int op = Integer.valueOf(scanner.nextLine());
 
 		if (op == 1) {
-			
+
 		} else if (op == 2) {
 			formaPagamento();
 		}
@@ -292,7 +286,7 @@ public class MainSistema {
 		int op = Integer.valueOf(scanner.nextLine());
 
 		if (op == 1) {
-			
+
 		} else if (op == 2) {
 			formaPagamento();
 		}
@@ -320,7 +314,7 @@ public class MainSistema {
 		int op = Integer.valueOf(scanner.nextLine());
 
 		if (op == 1) {
-			
+
 		} else if (op == 2) {
 			formaPagamento();
 		}
@@ -362,7 +356,7 @@ public class MainSistema {
 		int op = Integer.valueOf(scanner.nextLine());
 
 		if (op == 1) {
-			
+
 		} else if (op == 2) {
 			formaPagamento();
 		}
@@ -389,7 +383,7 @@ public class MainSistema {
 		int op = Integer.valueOf(scanner.nextLine());
 
 		if (op == 1) {
-			
+
 		} else if (op == 2) {
 			formaPagamento();
 		}
@@ -417,7 +411,7 @@ public class MainSistema {
 		int op = Integer.valueOf(scanner.nextLine());
 
 		if (op == 1) {
-			
+
 		} else if (op == 2) {
 			formaPagamento();
 		}
@@ -459,7 +453,7 @@ public class MainSistema {
 		int op = Integer.valueOf(scanner.nextLine());
 
 		if (op == 1) {
-			
+
 		} else if (op == 2) {
 			formaPagamento();
 		}

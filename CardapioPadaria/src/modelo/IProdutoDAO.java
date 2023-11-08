@@ -1,11 +1,13 @@
 package modelo;
 
-public class IProdutoDAO {
+import java.util.ArrayList;
 
-	public boolean alterar;
-	
-	public int inserir(Produto p);
-	
-	public boolean
-	
+public interface IProdutoDAO {
+	public boolean inserir(Produto p);
+
+	public boolean alterar(Produto p);
+
+	public boolean excluir(Produto p);
+
+	public ArrayList<Produto> listarProdutos();
 }
