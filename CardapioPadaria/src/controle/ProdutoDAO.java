@@ -4,13 +4,17 @@ import java.util.ArrayList;
 
 import modelo.Bebida;
 import modelo.Doce;
-import modelo.IProdutoDAO;
 import modelo.Produto;
 import modelo.Salgado;
 
 public class ProdutoDAO {
 
 	private static ProdutoDAO instancia;
+
+	/*
+	 * "Simula" um banco de dados ja que ainda nao vimos este conteudo Usamos o
+	 * arraylist como um banco de dados para guardar as infos
+	 */
 	private static ArrayList<Salgado> salgados;
 	private static ArrayList<Doce> doces;
 	private static ArrayList<Bebida> bebidas;
@@ -29,7 +33,7 @@ public class ProdutoDAO {
 
 		return instancia;
 	}
-	
+
 	public boolean inserirDoce(Doce p) {
 		if (p != null) {
 			doces.add(p);
@@ -38,7 +42,7 @@ public class ProdutoDAO {
 		}
 		return false;
 	}
-	
+
 	public boolean inserirBebida(Bebida p) {
 		if (p != null) {
 			bebidas.add(p);
@@ -57,79 +61,73 @@ public class ProdutoDAO {
 		return false;
 	}
 
-	public boolean alterar(Produto p) {
-		for (Produto produtos : tabelaProdutos) {
+	public boolean alterarSalgado(Salgado salgadoNovosDados) {
+		for (Produto salgadoDadosAntigos : salgados) {
 
-			if (produtos.getId() == produtos.getId()) {
-				produtos.setNome(produtos.getNome());
+			if (salgadoDadosAntigos.getId() == salgadoNovosDados.getId()) {
+				salgadoDadosAntigos.setNome(salgadoNovosDados.getNome());
 				return true;
 			}
 		}
 		return false;
 	}
 
-	public boolean excluir(Produto p) {
-		for (Produto produtos : tabelaProdutos) {
-			if (produtos.getId() == p.getId()) {
-				tabelaProdutos.remove(produtos);
+	public boolean alterarBebida(Bebida bebidaNovosDados) {
+		for (Produto bebidaDadosAntigos : bebidas) {
+
+			if (bebidaDadosAntigos.getId() == bebidaNovosDados.getId()) {
+				bebidaDadosAntigos.setNome(bebidaNovosDados.getNome());
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public boolean alterarDoce(Doce doceNovosDados) {
+		for (Produto doceDadosAntigos : doces) {
+
+			if (doceDadosAntigos.getId() == doceNovosDados.getId()) {
+				doceDadosAntigos.setNome(doceNovosDados.getNome());
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public boolean excluirDoce(Doce doceNovosDados) {
+		for (Doce doceDadosAntigos : doces) {
+			if (doceDadosAntigos.getId() == doceNovosDados.getId()) {
+				doces.remove(doceDadosAntigos);
 				return true;
 			}
 		}
 
 		return false;
 	}
-	
+
+	public boolean excluirSalgado(Salgado salgadoNovosDados) {
+		for (Salgado salgadoDadosAntigos : salgados) {
+			if (salgadoDadosAntigos.getId() == salgadoNovosDados.getId()) {
+				salgados.remove(salgadoDadosAntigos);
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	public boolean excluirBebida(Bebida bebidaNovosDados) {
+		for (Bebida bebidaDadosAntigos : bebidas) {
+			if (bebidaDadosAntigos.getId() == bebidaNovosDados.getId()) {
+				bebidas.remove(bebidaDadosAntigos);
+				return true;
+			}
+		}
+
+		return false;
+	}
+
 	public ArrayList<Doce> listarDoces() {
-		return doces;
-	}
-
-	public ArrayList<Bebida> listarBebidas() {
-		return bebidas;
-	}
-
-
-	public ArrayList<Salgado> listarSalgados() {
-		return salgados;
-	}
-
-	public static void criaEstoque() {
-		Salgado pastelFrango = new Salgado();
-		pastelFrango.setCodBarras(111);
-		pastelFrango.setNome("Pastel");
-		pastelFrango.setSabor("Sabor Frango");
-		pastelFrango.setDescricao(" frango, molho, farinha de trigo, óleo, sal, ovo e água.");
-		pastelFrango.setPreco(6.00);
-		pastelFrango.setTipo("pastel de frango");
-
-		Salgado pastelCarne = new Salgado();
-		pastelCarne.setCodBarras(222);
-		pastelCarne.setNome("Pastel");
-		pastelCarne.setSabor("Sabor Carne");
-		pastelCarne.setDescricao(" carne, molho, farinha de trigo, óleo, sal, ovo e água.");
-		pastelCarne.setPreco(6.00);
-		pastelCarne.setTipo("pastel de carne");
-
-		Salgado bolinhoCarne = new Salgado();
-		bolinhoCarne.setCodBarras(333);
-		bolinhoCarne.setNome("Bolinho");
-		bolinhoCarne.setSabor("Sabor Carne");
-		bolinhoCarne.setDescricao(" carne moída, cebola, ovo, farinha de trigo e alho");
-		bolinhoCarne.setPreco(4.0);
-		bolinhoCarne.setTipo("bolinho de carne");
-
-		Salgado coxinhaFrango = new Salgado();
-		coxinhaFrango.setCodBarras(444);
-		coxinhaFrango.setNome("Coxinha");
-		coxinhaFrango.setSabor("Sabor Frango");
-		coxinhaFrango.setDescricao(
-				"água, manteiga, sal, cubinhos de caldo de galinha esfarelados, farinha de trigo, azeite, alho, peito de frango, salsinha picadinha, ovo, leite e farinha de rosca");
-		coxinhaFrango.setPreco(5.00);
-		coxinhaFrango.setTipo("coxinha de frango");
-
-		salgados.add(pastelFrango);
-		salgados.add(pastelCarne);
-		salgados.add(bolinhoCarne);
-
 		Doce Brigadeiro = new Doce();
 		Brigadeiro.setCodBarras(555);
 		Brigadeiro.setNome("Brigadeiro");
@@ -176,6 +174,10 @@ public class ProdutoDAO {
 		doces.add(BoloChoco);
 		doces.add(BoloCeno);
 
+		return doces;
+	}
+
+	public ArrayList<Bebida> listarBebidas() {
 		Bebida Guarana = new Bebida();
 		Guarana.setCodBarras(1000);
 		Guarana.setNome("Refrigerantes");
@@ -229,6 +231,49 @@ public class ProdutoDAO {
 		bebidas.add(AguaGas);
 		bebidas.add(AguaSem);
 
+		return bebidas;
 	}
+
+	public ArrayList<Salgado> listarSalgados() {
+		Salgado pastelFrango = new Salgado();
+		pastelFrango.setCodBarras(111);
+		pastelFrango.setNome("Pastel");
+		pastelFrango.setSabor("Sabor Frango");
+		pastelFrango.setDescricao(" frango, molho, farinha de trigo, óleo, sal, ovo e água.");
+		pastelFrango.setPreco(6.00);
+		pastelFrango.setTipo("pastel de frango");
+
+		Salgado pastelCarne = new Salgado();
+		pastelCarne.setCodBarras(222);
+		pastelCarne.setNome("Pastel");
+		pastelCarne.setSabor("Sabor Carne");
+		pastelCarne.setDescricao(" carne, molho, farinha de trigo, óleo, sal, ovo e água.");
+		pastelCarne.setPreco(6.00);
+		pastelCarne.setTipo("pastel de carne");
+
+		Salgado bolinhoCarne = new Salgado();
+		bolinhoCarne.setCodBarras(333);
+		bolinhoCarne.setNome("Bolinho");
+		bolinhoCarne.setSabor("Sabor Carne");
+		bolinhoCarne.setDescricao(" carne moída, cebola, ovo, farinha de trigo e alho");
+		bolinhoCarne.setPreco(4.0);
+		bolinhoCarne.setTipo("bolinho de carne");
+
+		Salgado coxinhaFrango = new Salgado();
+		coxinhaFrango.setCodBarras(444);
+		coxinhaFrango.setNome("Coxinha");
+		coxinhaFrango.setSabor("Sabor Frango");
+		coxinhaFrango.setDescricao(
+				"água, manteiga, sal, cubinhos de caldo de galinha esfarelados, farinha de trigo, azeite, alho, peito de frango, salsinha picadinha, ovo, leite e farinha de rosca");
+		coxinhaFrango.setPreco(5.00);
+		coxinhaFrango.setTipo("coxinha de frango");
+
+		salgados.add(pastelFrango);
+		salgados.add(pastelCarne);
+		salgados.add(bolinhoCarne);
+
+		return salgados;
+	}
+
 
 }

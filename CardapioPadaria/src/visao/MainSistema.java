@@ -11,9 +11,6 @@ import modelo.Salgado;
 public class MainSistema {
 
 	private static ProdutoDAO dao = ProdutoDAO.getInstancia();
-	private static ArrayList<Salgado> salgados = dao.listarSalgados();
-	private static ArrayList<Doce> doces = dao.listarDoces();
-	private static ArrayList<Bebida> bebidas = dao.listarBebidas();
 
 	public static void main(String[] args) {
 
@@ -134,7 +131,9 @@ public class MainSistema {
 
 		int opcao = Integer.valueOf(scanner.nextLine());
 
+		ArrayList<Bebida> bebidas = dao.listarBebidas();
 		if (opcao == 1) {
+
 			for (Bebida bebida : bebidas) {
 				if (bebida.getTipo().equals("Agua com gás")) {
 					System.out.println("Bebida: " + bebida.getNome());
@@ -156,14 +155,14 @@ public class MainSistema {
 			}
 		}
 
-		System.out.println("Deseja mais alguma coisa?\n");
+		System.out.println("Deseja inserir mais alguma coisa?\n");
 		System.out.println("Digite 1 para sim");
 		System.out.println("DIgite 2 para não");
 
 		int op = Integer.valueOf(scanner.nextLine());
 
 		if (op == 1) {
-
+           
 		} else if (op == 2) {
 			formaPagamento();
 		}
@@ -177,7 +176,7 @@ public class MainSistema {
 		System.out.println("Escolha sua opção: ");
 
 		int opcao = Integer.valueOf(scanner.nextLine());
-
+		ArrayList<Bebida> bebidas = dao.listarBebidas();
 		if (opcao == 1) {
 			for (Bebida bebida : bebidas) {
 				if (bebida.getTipo().equals("Café com leite")) {
@@ -199,7 +198,7 @@ public class MainSistema {
 				}
 			}
 		}
-		System.out.println("Deseja mais alguma coisa?\n");
+		System.out.println("Deseja inserir mais alguma coisa?\n");
 		System.out.println("Digite 1 para sim");
 		System.out.println("DIgite 2 para não");
 
@@ -219,7 +218,7 @@ public class MainSistema {
 		System.out.println("Digite 2 para Coca-cola");
 
 		int opcao = Integer.valueOf(scanner.nextLine());
-
+		ArrayList<Bebida> bebidas = dao.listarBebidas();
 		if (opcao == 1) {
 			for (Bebida bebida : bebidas) {
 				if (bebida.getTipo().equals("Guarana")) {
@@ -241,7 +240,7 @@ public class MainSistema {
 				}
 			}
 		}
-		System.out.println("Deseja mais alguma coisa?\n");
+		System.out.println("Deseja inserir mais alguma coisa?\n");
 		System.out.println("Digite 1 para sim");
 		System.out.println("DIgite 2 para não");
 
@@ -261,7 +260,7 @@ public class MainSistema {
 		System.out.println("Digite 2 para Bolo de cenoura");
 
 		int opcao = Integer.valueOf(scanner.nextLine());
-
+		ArrayList<Doce> doces = dao.listarDoces();
 		if (opcao == 1) {
 			for (Doce doce : doces) {
 				if (doce.getTipo().equals("Bolo de chocolate")) {
@@ -299,7 +298,7 @@ public class MainSistema {
 	private static void verAcai() {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Você escolheu ver o açaí\n");
-
+		ArrayList<Doce> doces = dao.listarDoces();
 		for (Doce doce : doces) {
 			if (doce.getTipo().equals("Açaí")) {
 				System.out.println("Doce: " + doce.getNome());
@@ -331,7 +330,7 @@ public class MainSistema {
 		System.out.println("Digite 2 para brigadeiro de doce de leite");
 
 		int opcao = Integer.valueOf(scanner.nextLine());
-
+		ArrayList<Doce> doces = dao.listarDoces();
 		if (opcao == 1) {
 			for (Doce doce : doces) {
 				if (doce.getTipo().equals("Brigadeiro de chocolate")) {
@@ -369,7 +368,7 @@ public class MainSistema {
 	private static void verCoxinha() {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Você escolheu ver a coxinha de frango\n");
-
+		ArrayList<Salgado> salgados = dao.listarSalgados();
 		for (Salgado salgado : salgados) {
 			if (salgado.getTipo().equals("Coxinha de frango")) {
 				System.out.println("Salgado: " + salgado.getNome());
@@ -396,7 +395,7 @@ public class MainSistema {
 	private static void verBolinho() {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Você escolheu ver o bolhinho de carne\n");
-
+		ArrayList<Salgado> salgados = dao.listarSalgados();
 		for (Salgado salgado : salgados) {
 			if (salgado.getTipo().equals("bolinho de carne")) {
 				System.out.println("Salgado: " + salgado.getNome());
@@ -428,7 +427,7 @@ public class MainSistema {
 		System.out.println("Digite 2 para Pastel de Carne");
 
 		int opcao = Integer.valueOf(scanner.nextLine());
-
+		ArrayList<Salgado> salgados = dao.listarSalgados();
 		if (opcao == 1) {
 			for (Salgado salgado : salgados) {
 				if (salgado.getTipo().equals("pastel de frango")) {
