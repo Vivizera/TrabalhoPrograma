@@ -155,16 +155,32 @@ public class MainSistema {
 			}
 		}
 
-		System.out.println("Deseja inserir mais alguma coisa?\n");
-		System.out.println("Digite 1 para sim");
-		System.out.println("DIgite 2 para não");
+		// TROCAR BEBIDAS
+		System.out.println("Deseja mais alguma coisa?\n");
+		System.out.println("Digite 1 para para inserir algum novo item");
+		System.out.println("Digite 2 para deletar algum item selecinado");
+		System.out.println("Digite 3 para altearar algum item selecinado");
+		System.out.println("Digite 4 para ir para o pagamento");
 
 		int op = Integer.valueOf(scanner.nextLine());
 
 		if (op == 1) {
-           
+			ProdutoDAO dao = ProdutoDAO.getInstancia();
+			dao.inserirSalgado(null);
+
 		} else if (op == 2) {
+			ProdutoDAO dao = ProdutoDAO.getInstancia();
+			dao.excluirSalgado(null);
+
+		} else if (op == 3) {
+			ProdutoDAO dao = ProdutoDAO.getInstancia();
+			dao.alterarSalgado(null);
+		}
+
+		else if (op == 4) {
 			formaPagamento();
+		} else {
+			System.out.println("Opção invalida");
 		}
 	}
 
@@ -198,16 +214,32 @@ public class MainSistema {
 				}
 			}
 		}
-		System.out.println("Deseja inserir mais alguma coisa?\n");
-		System.out.println("Digite 1 para sim");
-		System.out.println("DIgite 2 para não");
+		// TROCAR BEBIDAS
+		System.out.println("Deseja mais alguma coisa?\n");
+		System.out.println("Digite 1 para para inserir algum novo item");
+		System.out.println("Digite 2 para deletar algum item selecinado");
+		System.out.println("Digite 3 para altearar algum item selecinado");
+		System.out.println("Digite 4 para ir para o pagamento");
 
 		int op = Integer.valueOf(scanner.nextLine());
 
 		if (op == 1) {
+			ProdutoDAO dao = ProdutoDAO.getInstancia();
+			dao.inserirSalgado(null);
 
 		} else if (op == 2) {
+			ProdutoDAO dao = ProdutoDAO.getInstancia();
+			dao.excluirSalgado(null);
+
+		} else if (op == 3) {
+			ProdutoDAO dao = ProdutoDAO.getInstancia();
+			dao.alterarSalgado(null);
+		}
+
+		else if (op == 4) {
 			formaPagamento();
+		} else {
+			System.out.println("Opção invalida");
 		}
 	}
 
@@ -240,17 +272,33 @@ public class MainSistema {
 				}
 			}
 		}
-		System.out.println("Deseja inserir mais alguma coisa?\n");
-		System.out.println("Digite 1 para sim");
-		System.out.println("DIgite 2 para não");
+		// TROCAR BEBIDAS
+				System.out.println("Deseja mais alguma coisa?\n");
+				System.out.println("Digite 1 para para inserir algum novo item");
+				System.out.println("Digite 2 para deletar algum item selecinado");
+				System.out.println("Digite 3 para altearar algum item selecinado");
+				System.out.println("Digite 4 para ir para o pagamento");
 
-		int op = Integer.valueOf(scanner.nextLine());
+				int op = Integer.valueOf(scanner.nextLine());
 
-		if (op == 1) {
+				if (op == 1) {
+					ProdutoDAO dao = ProdutoDAO.getInstancia();
+					dao.inserirSalgado(null);
 
-		} else if (op == 2) {
-			formaPagamento();
-		}
+				} else if (op == 2) {
+					ProdutoDAO dao = ProdutoDAO.getInstancia();
+					dao.excluirSalgado(null);
+
+				} else if (op == 3) {
+					ProdutoDAO dao = ProdutoDAO.getInstancia();
+					dao.alterarSalgado(null);
+				}
+
+				else if (op == 4) {
+					formaPagamento();
+				} else {
+					System.out.println("Opção invalida");
+				}
 	}
 
 	private static void verBolo() {
@@ -282,17 +330,33 @@ public class MainSistema {
 				}
 			}
 		}
-		System.out.println("Deseja mais alguma coisa?\n");
-		System.out.println("Digite 1 para sim");
-		System.out.println("DIgite 2 para não");
+		// TROCAR DOCES
+				System.out.println("Deseja mais alguma coisa?\n");
+				System.out.println("Digite 1 para para inserir algum novo item");
+				System.out.println("Digite 2 para deletar algum item selecinado");
+				System.out.println("Digite 3 para altearar algum item selecinado");
+				System.out.println("Digite 4 para ir para o pagamento");
 
-		int op = Integer.valueOf(scanner.nextLine());
+				int op = Integer.valueOf(scanner.nextLine());
 
-		if (op == 1) {
+				if (op == 1) {
+					ProdutoDAO dao = ProdutoDAO.getInstancia();
+					dao.inserirSalgado(null);
 
-		} else if (op == 2) {
-			formaPagamento();
-		}
+				} else if (op == 2) {
+					ProdutoDAO dao = ProdutoDAO.getInstancia();
+					dao.excluirSalgado(null);
+
+				} else if (op == 3) {
+					ProdutoDAO dao = ProdutoDAO.getInstancia();
+					dao.alterarSalgado(null);
+				}
+
+				else if (op == 4) {
+					formaPagamento();
+				} else {
+					System.out.println("Opção invalida");
+				}
 	}
 
 	private static void verAcai() {
@@ -310,16 +374,32 @@ public class MainSistema {
 			}
 
 		}
+		// TROCAR DOCES
 		System.out.println("Deseja mais alguma coisa?\n");
-		System.out.println("Digite 1 para sim");
-		System.out.println("DIgite 2 para não");
+		System.out.println("Digite 1 para para inserir algum novo item");
+		System.out.println("Digite 2 para deletar algum item selecinado");
+		System.out.println("Digite 3 para altearar algum item selecinado");
+		System.out.println("Digite 4 para ir para o pagamento");
 
 		int op = Integer.valueOf(scanner.nextLine());
 
 		if (op == 1) {
+			ProdutoDAO dao = ProdutoDAO.getInstancia();
+			dao.inserirSalgado(null);
 
 		} else if (op == 2) {
+			ProdutoDAO dao = ProdutoDAO.getInstancia();
+			dao.excluirSalgado(null);
+
+		} else if (op == 3) {
+			ProdutoDAO dao = ProdutoDAO.getInstancia();
+			dao.alterarSalgado(null);
+		}
+
+		else if (op == 4) {
 			formaPagamento();
+		} else {
+			System.out.println("Opção invalida");
 		}
 	}
 
@@ -353,15 +433,30 @@ public class MainSistema {
 			}
 		}
 		System.out.println("Deseja mais alguma coisa?\n");
-		System.out.println("Digite 1 para sim");
-		System.out.println("DIgite 2 para não");
-
+		System.out.println("Digite 1 para para inserir algum novo item");
+		System.out.println("Digite 2 para deletar algum item selecinado");
+		System.out.println("Digite 3 para altearar algum item selecinado");
+		System.out.println("Digite 4 para ir para o pagamento");
+//DOCES TROCAR
 		int op = Integer.valueOf(scanner.nextLine());
 
 		if (op == 1) {
+			ProdutoDAO dao = ProdutoDAO.getInstancia();
+			dao.inserirSalgado(null);
 
 		} else if (op == 2) {
+			ProdutoDAO dao = ProdutoDAO.getInstancia();
+			dao.excluirSalgado(null);
+
+		} else if (op == 3) {
+			ProdutoDAO dao = ProdutoDAO.getInstancia();
+			dao.alterarSalgado(null);
+		}
+
+		else if (op == 4) {
 			formaPagamento();
+		} else {
+			System.out.println("Opção invalida");
 		}
 	}
 
@@ -380,15 +475,30 @@ public class MainSistema {
 			}
 		}
 		System.out.println("Deseja mais alguma coisa?\n");
-		System.out.println("Digite 1 para sim");
-		System.out.println("DIgite 2 para não");
+		System.out.println("Digite 1 para para inserir algum novo item");
+		System.out.println("Digite 2 para deletar algum item selecinado");
+		System.out.println("Digite 3 para altearar algum item selecinado");
+		System.out.println("Digite 4 para ir para o pagamento");
 
 		int op = Integer.valueOf(scanner.nextLine());
 
 		if (op == 1) {
+			ProdutoDAO dao = ProdutoDAO.getInstancia();
+			dao.inserirSalgado(null);
 
 		} else if (op == 2) {
+			ProdutoDAO dao = ProdutoDAO.getInstancia();
+			dao.excluirSalgado(null);
+
+		} else if (op == 3) {
+			ProdutoDAO dao = ProdutoDAO.getInstancia();
+			dao.alterarSalgado(null);
+		}
+
+		else if (op == 4) {
 			formaPagamento();
+		} else {
+			System.out.println("Opção invalida");
 		}
 	}
 
@@ -408,15 +518,30 @@ public class MainSistema {
 
 		}
 		System.out.println("Deseja mais alguma coisa?\n");
-		System.out.println("Digite 1 para sim");
-		System.out.println("DIgite 2 para não");
+		System.out.println("Digite 1 para para inserir algum novo item");
+		System.out.println("Digite 2 para deletar algum item selecinado");
+		System.out.println("Digite 3 para altearar algum item selecinado");
+		System.out.println("Digite 4 para ir para o pagamento");
 
 		int op = Integer.valueOf(scanner.nextLine());
 
 		if (op == 1) {
+			ProdutoDAO dao = ProdutoDAO.getInstancia();
+			dao.inserirSalgado(null);
 
 		} else if (op == 2) {
+			ProdutoDAO dao = ProdutoDAO.getInstancia();
+			dao.excluirSalgado(null);
+
+		} else if (op == 3) {
+			ProdutoDAO dao = ProdutoDAO.getInstancia();
+			dao.alterarSalgado(null);
+		}
+
+		else if (op == 4) {
 			formaPagamento();
+		} else {
+			System.out.println("Opção invalida");
 		}
 	}
 
@@ -450,15 +575,30 @@ public class MainSistema {
 			}
 		}
 		System.out.println("Deseja mais alguma coisa?\n");
-		System.out.println("Digite 1 para sim");
-		System.out.println("DIgite 2 para não");
+		System.out.println("Digite 1 para para inserir algum novo item");
+		System.out.println("Digite 2 para deletar algum item selecinado");
+		System.out.println("Digite 3 para altearar algum item selecinado");
+		System.out.println("Digite 4 para ir para o pagamento");
 
 		int op = Integer.valueOf(scanner.nextLine());
 
 		if (op == 1) {
+			ProdutoDAO dao = ProdutoDAO.getInstancia();
+			dao.inserirSalgado(null);
 
 		} else if (op == 2) {
+			ProdutoDAO dao = ProdutoDAO.getInstancia();
+			dao.excluirSalgado(null);
+
+		} else if (op == 3) {
+			ProdutoDAO dao = ProdutoDAO.getInstancia();
+			dao.alterarSalgado(null);
+		}
+
+		else if (op == 4) {
 			formaPagamento();
+		} else {
+			System.out.println("Opção invalida");
 		}
 	}
 
