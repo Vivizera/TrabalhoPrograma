@@ -166,15 +166,15 @@ public class MainSistema {
 
 		if (op == 1) {
 			ProdutoDAO dao = ProdutoDAO.getInstancia();
-			dao.inserirSalgado(null);
+			dao.inserirBebida(null);
 
 		} else if (op == 2) {
 			ProdutoDAO dao = ProdutoDAO.getInstancia();
-			dao.excluirSalgado(null);
+			dao.excluirBebida(null);
 
 		} else if (op == 3) {
 			ProdutoDAO dao = ProdutoDAO.getInstancia();
-			dao.alterarSalgado(null);
+			dao.alterarBebida(null);
 		}
 
 		else if (op == 4) {
@@ -225,15 +225,15 @@ public class MainSistema {
 
 		if (op == 1) {
 			ProdutoDAO dao = ProdutoDAO.getInstancia();
-			dao.inserirSalgado(null);
+			dao.inserirBebida(null);
 
 		} else if (op == 2) {
 			ProdutoDAO dao = ProdutoDAO.getInstancia();
-			dao.excluirSalgado(null);
+			dao.excluirBebida(null);
 
 		} else if (op == 3) {
 			ProdutoDAO dao = ProdutoDAO.getInstancia();
-			dao.alterarSalgado(null);
+			dao.alterarBebida(null);
 		}
 
 		else if (op == 4) {
@@ -283,15 +283,15 @@ public class MainSistema {
 
 				if (op == 1) {
 					ProdutoDAO dao = ProdutoDAO.getInstancia();
-					dao.inserirSalgado(null);
+					dao.inserirBebida(null);
 
 				} else if (op == 2) {
 					ProdutoDAO dao = ProdutoDAO.getInstancia();
-					dao.excluirSalgado(null);
+					dao.excluirBebida(null);
 
 				} else if (op == 3) {
 					ProdutoDAO dao = ProdutoDAO.getInstancia();
-					dao.alterarSalgado(null);
+					dao.alterarBebida(null);
 				}
 
 				else if (op == 4) {
@@ -341,15 +341,15 @@ public class MainSistema {
 
 				if (op == 1) {
 					ProdutoDAO dao = ProdutoDAO.getInstancia();
-					dao.inserirSalgado(null);
+					dao.inserirDoce(null);
 
 				} else if (op == 2) {
 					ProdutoDAO dao = ProdutoDAO.getInstancia();
-					dao.excluirSalgado(null);
+					dao.excluirDoce(null);
 
 				} else if (op == 3) {
 					ProdutoDAO dao = ProdutoDAO.getInstancia();
-					dao.alterarSalgado(null);
+					dao.alterarDoce(null);
 				}
 
 				else if (op == 4) {
@@ -385,15 +385,15 @@ public class MainSistema {
 
 		if (op == 1) {
 			ProdutoDAO dao = ProdutoDAO.getInstancia();
-			dao.inserirSalgado(null);
+			dao.inserirDoce(null);
 
 		} else if (op == 2) {
 			ProdutoDAO dao = ProdutoDAO.getInstancia();
-			dao.excluirSalgado(null);
+			dao.excluirDoce(null);
 
 		} else if (op == 3) {
 			ProdutoDAO dao = ProdutoDAO.getInstancia();
-			dao.alterarSalgado(null);
+			dao.alterarDoce(null);
 		}
 
 		else if (op == 4) {
@@ -442,15 +442,15 @@ public class MainSistema {
 
 		if (op == 1) {
 			ProdutoDAO dao = ProdutoDAO.getInstancia();
-			dao.inserirSalgado(null);
+			dao.inserirDoce(null);
 
 		} else if (op == 2) {
 			ProdutoDAO dao = ProdutoDAO.getInstancia();
-			dao.excluirSalgado(null);
+			dao.excluirDoce(null);
 
 		} else if (op == 3) {
 			ProdutoDAO dao = ProdutoDAO.getInstancia();
-			dao.alterarSalgado(null);
+			dao.alterarDoce(null);
 		}
 
 		else if (op == 4) {
@@ -566,7 +566,7 @@ public class MainSistema {
 		} else if (opcao == 2) {
 			for (Salgado salgado : salgados) {
 				if (salgado.getTipo().equals("pastel de carne")) {
-					System.out.println("Bebida: " + salgado.getNome());
+					System.out.println("salgado: " + salgado.getNome());
 					System.out.println("Sabor: " + salgado.getSabor());
 					System.out.println("Ingredientes: " + salgado.getDescricao());
 					System.out.println("Preço: R$" + salgado.getPreco());

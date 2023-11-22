@@ -36,7 +36,19 @@ public class ProdutoDAO {
 
 	public boolean inserirDoce(Doce p) {
 		if (p != null) {
-			doces.add(p);
+			
+			ArrayList<Doce> doces = new ArrayList<>();
+			Doce d = new Doce();
+			d.setCodBarras(0);
+			d.setDescricao(null);
+			d.setNome(null);
+			d.setPreco(null);
+			d.setSabor(null);
+			d.setValorCodBarras(null);
+			
+			System.out.println(d.getPreco());
+			
+			d.add();
 
 			return true;
 		}
@@ -45,6 +57,7 @@ public class ProdutoDAO {
 
 	public boolean inserirBebida(Bebida p) {
 		if (p != null) {
+			System.out.println(p.getPreco());
 			bebidas.add(p);
 
 			return true;
