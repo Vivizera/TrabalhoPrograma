@@ -172,8 +172,8 @@ public class MainSistema {
 		// TROCAR BEBIDAS
 		System.out.println("Deseja mais alguma coisa?\n");
 		System.out.println("Digite 1 para para inserir algum novo item");
-		System.out.println("Digite 2 para deletar algum item selecinado");
-		System.out.println("Digite 3 para altearar algum item selecinado");
+		System.out.println("Digite 2 para delertar algum item selecinado");
+		System.out.println("Digite 3 para alteara algum item selecinado");
 		System.out.println("Digite 4 para ir para o pagamento");
 
 		int op = Integer.valueOf(scanner.nextLine());
