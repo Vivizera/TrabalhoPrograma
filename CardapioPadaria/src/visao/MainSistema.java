@@ -48,10 +48,13 @@ public class MainSistema {
 
 					if (opcao == 1) {
 						verPasteis();
+						total += 6.00;
 					} else if (opcao == 2) {
 						verBolinho();
+						total += 4.00;
 					} else if (opcao == 3) {
 						verCoxinha();
+						total += 5.00;
 					} else if (opcao == 4) {
 						opcao = 4;
 						break;
@@ -72,9 +75,12 @@ public class MainSistema {
 
 					if (opcao == 1) {
 						verBrigadeiros();
+						total += 3.00;
 					} else if (opcao == 2) {
 						verAcai();
+						total += 6.00;
 					} else if (opcao == 3) {
+						total += 6.00;
 						verBolo();
 					} else if (opcao == 4) {
 						continuar = false;
@@ -95,10 +101,13 @@ public class MainSistema {
 
 					if (opcao == 1) {
 						verRefrigerantes();
+						total += 5.00;
 					} else if (opcao == 2) {
 						verCafes();
+						total += 3.00;
 					} else if (opcao == 3) {
 						verAguas();
+						total += 2.00;
 					} else if (opcao == 4) {
 						continuar = false;
 					} else {
@@ -108,13 +117,18 @@ public class MainSistema {
 
 			case 4:
 				System.out.println("Fechando o sistema!");
+				
 				break;
 			default:
 				System.out.println("Opção inválida. Por favor, escolha uma opção válida.");
 
 			}
 
-		} while (escolha != 3);
+			System.out.println("Compra finalizada. Total a pagar;R$" + total);
+		} 
+		
+		
+		while (escolha != 3);
 
 		scanner.close();
 
@@ -166,7 +180,10 @@ public class MainSistema {
 
 		if (op == 1) {
 			ProdutoDAO dao = ProdutoDAO.getInstancia();
-			dao.inserirBebida(null);
+			Bebida b = new Bebida();
+			// pedir para ele cadastrar uma bebida nova
+			
+			dao.inserirBebida(b);
 
 		} else if (op == 2) {
 			ProdutoDAO dao = ProdutoDAO.getInstancia();
@@ -374,6 +391,7 @@ public class MainSistema {
 			}
 
 		}
+		
 		// TROCAR DOCES
 		System.out.println("Deseja mais alguma coisa?\n");
 		System.out.println("Digite 1 para para inserir algum novo item");
@@ -605,11 +623,9 @@ public class MainSistema {
 	private static void formaPagamento() {
 		// FORMA DE PAGAMENTO:
 		Scanner scanner = new Scanner(System.in);
+		
 		System.out.println("Lista de Compras:");
 
-		double total = 0;
-
-		System.out.println("Total: R$" + total);
 		System.out.println("Volte sempre!!");
 
 		System.out.println("Escolha a forma de pagamento\n: ");
@@ -629,6 +645,7 @@ public class MainSistema {
 		} else if (opcao == 4) {
 			System.out.println("Pagamento concluido!");
 		}
+		
 
 	}
 
