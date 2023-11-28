@@ -334,8 +334,19 @@ public class MainSistema {
 					System.out.println("Ingredientes: " + doce.getDescricao());
 					System.out.println("Preço: R$" + doce.getPreco());
 					// System.out.println("Tipo: " + bebida.getTipo());
+				
 				}
 			}
+			Doce BoloChoco = new Doce();
+			BoloChoco.setCodBarras(888);
+			BoloChoco.setNome("Bolo");
+			BoloChoco.setSabor("Sabor chocolate");
+			BoloChoco.setDescricao("ovos, manteiga, açucar, leite, chocolate em pó, farinha de trigo e fermento");
+			BoloChoco.setPreco(6.00);
+			BoloChoco.setTipo("Bolo de chocolate");
+		    dao.inserirDoce(BoloChoco);
+		    
+		   
 		} else if (opcao == 2) {
 			for (Doce doce : doces) {
 				if (doce.getTipo().equals("Bolo de cenoura")) {
@@ -353,7 +364,8 @@ public class MainSistema {
 				System.out.println("Digite 2 para deletar algum item selecinado");
 				System.out.println("Digite 3 para altearar algum item selecinado");
 				System.out.println("Digite 4 para ir para o pagamento");
-
+                
+				dao.listar();
 				int op = Integer.valueOf(scanner.nextLine());
 
 				if (op == 1) {
@@ -361,10 +373,15 @@ public class MainSistema {
 					dao.inserirDoce(null);
 
 				} else if (op == 2) {
+					System.out.println("Digite o Id do produto: ");
+					int CodBarras= Integer.valueOf(scanner.nextLine());
 					ProdutoDAO dao = ProdutoDAO.getInstancia();
-					dao.excluirDoce(null);
+					dao.excluirDoce(CodBarras);
 
 				} else if (op == 3) {
+					
+					System.out.println("Digite o Id do produto: ");
+					int CodBarras= Integer.valueOf(scanner.nextLine());
 					ProdutoDAO dao = ProdutoDAO.getInstancia();
 					dao.alterarDoce(null);
 				}

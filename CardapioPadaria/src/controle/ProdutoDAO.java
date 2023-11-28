@@ -232,16 +232,25 @@ public class ProdutoDAO {
 		return false;
 	}
 
-	public boolean excluirDoce(Doce doceNovosDados) {
+	public boolean excluirDoce(int CodBarras) {
+		int index=0;
 		for (Doce doceDadosAntigos : doces) {
-			if (doceDadosAntigos.getId() == doceNovosDados.getId()) {
-				doces.remove(doceDadosAntigos);
+			if (doceDadosAntigos.getId() == CodBarras) {
+				doces.remove(index);
 				return true;
 			}
+			index++;
 		}
 
 		return false;
 	}
+	
+	public void listar() {
+        for (Doce doce : doces) {
+            System.out.println(doce.getId());
+
+        }
+    }
 
 	public boolean excluirSalgado(Salgado salgadoNovosDados) {
 		for (Salgado salgadoDadosAntigos : salgados) {
