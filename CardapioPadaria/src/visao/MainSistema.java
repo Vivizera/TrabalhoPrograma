@@ -25,7 +25,7 @@ public class MainSistema {
 		// MENU PRINCIPAL:
 
 		do {
-
+			dao.listar();
 			System.out.println("======== BEM-VINDO A NOSSA PADARIA! ========");
 			System.out.println("Digite 1 para SALGADOS");
 			System.out.println("Digite 2 para DOCE");
@@ -33,7 +33,7 @@ public class MainSistema {
 			System.out.println("Digite 4 para sair");
 			System.out.print("Escolha uma opção: ");
 			escolha = Integer.valueOf(scanner.nextLine());
-
+			
 			switch (escolha) {
 			case 1:
 				System.out.println("Você escolheu salgados\n");
@@ -45,15 +45,15 @@ public class MainSistema {
 					System.out.println("Digite 4 para voltar ao menu principal");
 					System.out.print("Escolha uma opção: ");
 					opcao = Integer.valueOf(scanner.nextLine());
-
+					
 					if (opcao == 1) {
-						verPasteis();
+						//verPasteis();
 						total += 6.00;
 					} else if (opcao == 2) {
-						verBolinho();
+						//verBolinho();
 						total += 4.00;
 					} else if (opcao == 3) {
-						verCoxinha();
+						//verCoxinha();
 						total += 5.00;
 					} else if (opcao == 4) {
 						opcao = 4;
@@ -62,6 +62,7 @@ public class MainSistema {
 						System.out.println("Opção inválida. Tente novamente.");
 					}
 				}
+				break;
 
 			case 2:
 				System.out.println("Você escolheu doces\n");
@@ -72,16 +73,17 @@ public class MainSistema {
 					System.out.println("Digite 3 para ver o bolo");
 					System.out.print("Escolha uma opção: ");
 					opcao = Integer.valueOf(scanner.nextLine());
-
+					
 					if (opcao == 1) {
-						verBrigadeiros();
 						total += 3.00;
+						total =verBrigadeiros(total);
+						
 					} else if (opcao == 2) {
-						verAcai();
 						total += 6.00;
+						total =verAcai(total);
 					} else if (opcao == 3) {
 						total += 6.00;
-						verBolo();
+						total =verBolo(total);
 					} else if (opcao == 4) {
 						continuar = false;
 
@@ -89,6 +91,7 @@ public class MainSistema {
 						System.out.println("Opção inválida. Tente novamente.");
 					}
 				}
+				break;
 
 			case 3:
 
@@ -100,13 +103,13 @@ public class MainSistema {
 					opcao = Integer.valueOf(scanner.nextLine());
 
 					if (opcao == 1) {
-						verRefrigerantes();
+						//verRefrigerantes();
 						total += 5.00;
 					} else if (opcao == 2) {
-						verCafes();
+						//verCafes();
 						total += 3.00;
 					} else if (opcao == 3) {
-						verAguas();
+						//verAguas();
 						total += 2.00;
 					} else if (opcao == 4) {
 						continuar = false;
@@ -114,28 +117,29 @@ public class MainSistema {
 						System.out.println("Opção inválida. Tente novamente.");
 					}
 				}
-
+				break;
+				
 			case 4:
+				formaPagamento(total);
 				System.out.println("Fechando o sistema!");
 				
 				break;
+				
 			default:
 				System.out.println("Opção inválida. Por favor, escolha uma opção válida.");
 
 			}
-
-			System.out.println("Compra finalizada. Total a pagar;R$" + total);
+			
 		} 
 		
-		
-		while (escolha != 3);
+		while (escolha != 4);
 
 		scanner.close();
 
 	}
 
 	// METODOS:
-
+/*
 	private static void verAguas() {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Você escolheu ver as águas\n");
@@ -317,8 +321,10 @@ public class MainSistema {
 					System.out.println("Opção invalida");
 				}
 	}
-
-	private static void verBolo() {
+*/
+	
+	private static Double verBolo(Double total) {
+		int alterar=0;
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Você escolheu ver bolo\n");
 		System.out.println("Digite 1 para Bolo de chocolate");
@@ -327,16 +333,7 @@ public class MainSistema {
 		int opcao = Integer.valueOf(scanner.nextLine());
 		ArrayList<Doce> doces = dao.listarDoces();
 		if (opcao == 1) {
-			for (Doce doce : doces) {
-				if (doce.getTipo().equals("Bolo de chocolate")) {
-					System.out.println("Bebida: " + doce.getNome());
-					System.out.println("Sabor: " + doce.getSabor());
-					System.out.println("Ingredientes: " + doce.getDescricao());
-					System.out.println("Preço: R$" + doce.getPreco());
-					// System.out.println("Tipo: " + bebida.getTipo());
-				
-				}
-			}
+			
 			Doce BoloChoco = new Doce();
 			BoloChoco.setCodBarras(888);
 			BoloChoco.setNome("Bolo");
@@ -344,78 +341,83 @@ public class MainSistema {
 			BoloChoco.setDescricao("ovos, manteiga, açucar, leite, chocolate em pó, farinha de trigo e fermento");
 			BoloChoco.setPreco(6.00);
 			BoloChoco.setTipo("Bolo de chocolate");
+			alterar = 888;
 		    dao.inserirDoce(BoloChoco);
 		    
 		   
 		} else if (opcao == 2) {
-			for (Doce doce : doces) {
-				if (doce.getTipo().equals("Bolo de cenoura")) {
-					System.out.println("Bebida: " + doce.getNome());
-					System.out.println("Sabor: " + doce.getSabor());
-					System.out.println("Ingredientes: " + doce.getDescricao());
-					System.out.println("Preço: R$" + doce.getPreco());
-					// System.out.println("Tipo: " + bebida.getTipo());
-				}
-			}
+			
+			Doce BoloCeno = new Doce();
+			BoloCeno.setCodBarras(999);
+			BoloCeno.setNome("Bolo");
+			BoloCeno.setSabor("Sabor cenoura");
+			BoloCeno.setDescricao("ovos, manteiga, açucar, leite, chocolate em pó, farinha de trigo e fermento");
+			BoloCeno.setPreco(6.00);
+			BoloCeno.setTipo("Bolo de cenoura");
+			alterar = 999;
+		    dao.inserirDoce(BoloCeno);
 		}
 		// TROCAR DOCES
+				dao.listar();
 				System.out.println("Deseja mais alguma coisa?\n");
 				System.out.println("Digite 1 para para inserir algum novo item");
 				System.out.println("Digite 2 para deletar algum item selecinado");
 				System.out.println("Digite 3 para altearar algum item selecinado");
 				System.out.println("Digite 4 para ir para o pagamento");
-                
-				dao.listar();
+               
 				int op = Integer.valueOf(scanner.nextLine());
-
 				if (op == 1) {
 					ProdutoDAO dao = ProdutoDAO.getInstancia();
-					dao.inserirDoce(null);
+					//dao.inserirDoce(null);
+					
 
 				} else if (op == 2) {
-					System.out.println("Digite o Id do produto: ");
-					int CodBarras= Integer.valueOf(scanner.nextLine());
 					ProdutoDAO dao = ProdutoDAO.getInstancia();
+					System.out.println("Digite o CodBarras do produto: ");
+					int CodBarras= Integer.valueOf(scanner.nextLine());
 					dao.excluirDoce(CodBarras);
-
+					total -= 6.00;
 				} else if (op == 3) {
-					
-					System.out.println("Digite o Id do produto: ");
-					int CodBarras= Integer.valueOf(scanner.nextLine());
 					ProdutoDAO dao = ProdutoDAO.getInstancia();
-					dao.alterarDoce(null);
+					dao.alterarDoce(alterar);
+					total -= 6.00;
+					
+					
 				}
 
 				else if (op == 4) {
-					formaPagamento();
+					formaPagamento(total);
 				} else {
 					System.out.println("Opção invalida");
 				}
+				return total;
 	}
 
-	private static void verAcai() {
+	private static double verAcai(Double total) {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Você escolheu ver o açaí\n");
 		ArrayList<Doce> doces = dao.listarDoces();
-		for (Doce doce : doces) {
-			if (doce.getTipo().equals("Açaí")) {
-				System.out.println("Doce: " + doce.getNome());
-				System.out.println("Sabor: " + doce.getSabor());
-				System.out.println("Ingredientes: " + doce.getDescricao());
-				System.out.println("Preço: R$" + doce.getPreco());
-				// System.out.println(doce.getTipo());
+		
+			Doce Acai = new Doce();
+			Acai.setCodBarras(777);
+			Acai.setNome("Açaí");
+			Acai.setSabor("Sabor açaí");
+			Acai.setDescricao(" fruta açaí e açucar.");
+			Acai.setPreco(6.00);
+			Acai.setTipo("Açaí");
+			
+			dao.inserirDoce(Acai);
 
-			}
-
-		}
+		
 		
 		// TROCAR DOCES
+		dao.listar();
 		System.out.println("Deseja mais alguma coisa?\n");
 		System.out.println("Digite 1 para para inserir algum novo item");
 		System.out.println("Digite 2 para deletar algum item selecinado");
 		System.out.println("Digite 3 para altearar algum item selecinado");
 		System.out.println("Digite 4 para ir para o pagamento");
-
+		
 		int op = Integer.valueOf(scanner.nextLine());
 
 		if (op == 1) {
@@ -424,21 +426,25 @@ public class MainSistema {
 
 		} else if (op == 2) {
 			ProdutoDAO dao = ProdutoDAO.getInstancia();
-			dao.excluirDoce(null);
+			System.out.println("Digite o CodBarras do produto: ");
+			int CodBarras= Integer.valueOf(scanner.nextLine());
+			dao.excluirDoce(CodBarras);
+			total -= 6.00;
 
 		} else if (op == 3) {
 			ProdutoDAO dao = ProdutoDAO.getInstancia();
-			dao.alterarDoce(null);
+			dao.alterarDoce(1);
 		}
 
 		else if (op == 4) {
-			formaPagamento();
+			formaPagamento(total);
 		} else {
 			System.out.println("Opção invalida");
 		}
+		return total;
 	}
 
-	private static void verBrigadeiros() {
+	private static double verBrigadeiros(Double total) {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Você escolheu ver os brigadeiros\n");
 		System.out.println("Digite 1 para brigadeiro de chocolate");
@@ -447,32 +453,36 @@ public class MainSistema {
 		int opcao = Integer.valueOf(scanner.nextLine());
 		ArrayList<Doce> doces = dao.listarDoces();
 		if (opcao == 1) {
-			for (Doce doce : doces) {
-				if (doce.getTipo().equals("Brigadeiro de chocolate")) {
-					System.out.println("Doce: " + doce.getNome());
-					System.out.println("Sabor: " + doce.getSabor());
-					System.out.println("Ingredientes: " + doce.getDescricao());
-					System.out.println("Preço: R$" + doce.getPreco());
-					// System.out.println("Tipo: " + bebida.getTipo());
-				}
-			}
+			
+			Doce Brigadeiro = new Doce();
+			Brigadeiro.setCodBarras(555);
+			Brigadeiro.setNome("Brigadeiro");
+			Brigadeiro.setSabor("Sabor Chocolate");
+			Brigadeiro.setDescricao("leite condensado, manteiga, e Nescau.");
+			Brigadeiro.setPreco(3.00);
+			Brigadeiro.setTipo("Brigadeiro de chocolate");
+			
+			dao.inserirDoce(Brigadeiro);
+			
 		} else if (opcao == 2) {
-			for (Doce doce : doces) {
-				if (doce.getTipo().equals("Brigadeiro de doce de leite")) {
-					System.out.println("Doce: " + doce.getNome());
-					System.out.println("Sabor: " + doce.getSabor());
-					System.out.println("Ingredientes: " + doce.getDescricao());
-					System.out.println("Preço: R$" + doce.getPreco());
-					// System.out.println("Tipo: " + bebida.getTipo());
-				}
-			}
+			Doce BrigadeiroLeite = new Doce();
+			BrigadeiroLeite.setCodBarras(666);
+			BrigadeiroLeite.setNome("Brigadeiro");
+			BrigadeiroLeite.setSabor("Doce de Leite");
+			BrigadeiroLeite.setDescricao("leite condensado, manteiga, e Nescau.");
+			BrigadeiroLeite.setPreco(3.00);
+			BrigadeiroLeite.setTipo("Brigadeiro de doce de leite");
+			
+			dao.inserirDoce(BrigadeiroLeite);
 		}
+		dao.listar();
 		System.out.println("Deseja mais alguma coisa?\n");
 		System.out.println("Digite 1 para para inserir algum novo item");
 		System.out.println("Digite 2 para deletar algum item selecinado");
 		System.out.println("Digite 3 para altearar algum item selecinado");
 		System.out.println("Digite 4 para ir para o pagamento");
-//DOCES TROCAR
+        
+		//DOCES TROCAR
 		int op = Integer.valueOf(scanner.nextLine());
 
 		if (op == 1) {
@@ -481,20 +491,25 @@ public class MainSistema {
 
 		} else if (op == 2) {
 			ProdutoDAO dao = ProdutoDAO.getInstancia();
-			dao.excluirDoce(null);
-
+			System.out.println("Digite o CodBarras do produto: ");
+			int CodBarras= Integer.valueOf(scanner.nextLine());
+			dao.excluirDoce(CodBarras);
+			total -= 3.00;
+			
 		} else if (op == 3) {
 			ProdutoDAO dao = ProdutoDAO.getInstancia();
-			dao.alterarDoce(null);
+			dao.alterarDoce(1);
 		}
 
 		else if (op == 4) {
-			formaPagamento();
+			formaPagamento(total);
 		} else {
 			System.out.println("Opção invalida");
 		}
+		return total;
 	}
 
+	/*
 	private static void verCoxinha() {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Você escolheu ver a coxinha de frango\n");
@@ -637,14 +652,18 @@ public class MainSistema {
 		}
 	}
 
-	private static void formaPagamento() {
+	*/
+	
+	private static void formaPagamento(Double total) {
 		// FORMA DE PAGAMENTO:
 		Scanner scanner = new Scanner(System.in);
 		
 		System.out.println("Lista de Compras:");
+		
+		dao.listar();
 
 		System.out.println("Volte sempre!!");
-
+		System.out.println("Compra finalizada. Total a pagar;R$" + total);
 		System.out.println("Escolha a forma de pagamento\n: ");
 		System.out.println("Digite 1 para cartão de crédito");
 		System.out.println("Digite 2 para cartão de débito");

@@ -16,7 +16,7 @@ public class ProdutoDAO {
 	 * arraylist como um banco de dados para guardar as infos
 	 */
 	private static ArrayList<Salgado> salgados;
-	private static ArrayList<Doce> doces;
+	private static  ArrayList<Doce> doces;
 	private static ArrayList<Bebida> bebidas;
 
 	private ProdutoDAO() {
@@ -122,13 +122,13 @@ public class ProdutoDAO {
 			BoloCeno.setDescricao("ovos, manteiga, açucar, leite, chocolate em pó, farinha de trigo e fermento");
 			BoloCeno.setPreco(6.00);
 			BoloCeno.setTipo("Bolo de cenoura");
-
+			/*
 			doces.add(Brigadeiro);
 			doces.add(BrigadeiroLeite);
 			doces.add(Acai);
 			doces.add(BoloChoco);
 			doces.add(BoloCeno);
-
+			 */
 			Salgado pastelFrango = new Salgado();
 			pastelFrango.setCodBarras(111);
 			pastelFrango.setNome("Pastel");
@@ -171,6 +171,7 @@ public class ProdutoDAO {
 	}
 
 	public boolean inserirDoce(Doce p) {
+		
 		if (p != null) {
 
 			doces.add(p);
@@ -221,21 +222,21 @@ public class ProdutoDAO {
 		return false;
 	}
 
-	public boolean alterarDoce(Doce doceNovosDados) {
-		for (Produto doceDadosAntigos : doces) {
-
-			if (doceDadosAntigos.getId() == doceNovosDados.getId()) {
-				doceDadosAntigos.setNome(doceNovosDados.getNome());
-				return true;
-			}
-		}
+	public boolean alterarDoce(int CodBarras) {
+		
+		excluirDoce(CodBarras);
+		
+		
+		
+		//inserirDoce();
+		
 		return false;
 	}
 
 	public boolean excluirDoce(int CodBarras) {
 		int index=0;
 		for (Doce doceDadosAntigos : doces) {
-			if (doceDadosAntigos.getId() == CodBarras) {
+			if (doceDadosAntigos.getCodBarras() == CodBarras) {
 				doces.remove(index);
 				return true;
 			}
@@ -247,8 +248,12 @@ public class ProdutoDAO {
 	
 	public void listar() {
         for (Doce doce : doces) {
-            System.out.println(doce.getId());
-
+            System.out.println(doce.getCodBarras());
+            System.out.println(doce.getNome());
+            System.out.println(doce.getDescricao());
+            System.out.println(doce.getSabor());
+            System.out.println(doce.getTipo());
+            System.out.println(doce.getPreco());
         }
     }
 
@@ -275,7 +280,7 @@ public class ProdutoDAO {
 	}
 
 	public ArrayList<Doce> listarDoces() {
-
+		
 		return doces;
 	}
 
